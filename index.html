@@ -384,7 +384,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
 .payment-method.selected{border-color:var(--green);background:var(--green-bg)}
 .payment-method-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
 .payment-method-icon.stripe{background:#635BFF;color:#fff}
-.payment-method-icon.cash{background:var(--green);color:#fff}
 .payment-method-info h4{font-size:1rem;margin-bottom:2px}
 .payment-method-info p{font-size:.8rem;color:var(--text-muted)}
 .payment-secure{display:flex;align-items:center;gap:6px;justify-content:center;font-size:.8rem;color:var(--text-muted);margin-top:16px}
@@ -931,7 +930,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
       </div>
       <div class="faq-item">
         <div class="faq-q">Le paiement est-il sécurisé ?</div>
-        <div class="faq-a"><p>Oui. Les paiements en ligne sont traités via Stripe, leader mondial du paiement sécurisé (certifié PCI-DSS niveau 1). Vos coordonnées bancaires ne sont jamais stockées sur nos serveurs. Vous pouvez aussi payer sur place après la prestation.</p></div>
+        <div class="faq-a"><p>Oui. Les paiements sont traités via Stripe, leader mondial du paiement sécurisé (certifié PCI-DSS niveau 1). Vos coordonnées bancaires ne sont jamais stockées sur nos serveurs.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Mes données personnelles sont-elles protégées ?</div>
@@ -1102,7 +1101,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
           Continuer vers le paiement
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
-        <p style="text-align:center;font-size:.8rem;color:var(--text-muted);margin-top:12px">Paiement sécurisé par carte ou sur place.</p>
+        <p style="text-align:center;font-size:.8rem;color:var(--text-muted);margin-top:12px">🔒 Paiement sécurisé par carte bancaire via Stripe.</p>
       </form>
     </div>
   </div>
@@ -1137,15 +1136,6 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
             <div class="payment-method-info">
               <h4>Payer par carte</h4>
               <p>Paiement sécurisé via Stripe</p>
-            </div>
-          </div>
-          <div class="payment-method" id="payCash" onclick="selectPayment('cash')">
-            <div class="payment-method-icon cash">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M9 9.5c0-.8.7-1.5 1.5-1.5h3c.8 0 1.5.7 1.5 1.5S14.3 11 13.5 11h-3c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5h3c.8 0 1.5-.7 1.5-1.5"/></svg>
-            </div>
-            <div class="payment-method-info">
-              <h4>Payer sur place</h4>
-              <p>Espèces ou virement après la prestation</p>
             </div>
           </div>
         </div>
@@ -1280,7 +1270,7 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;back
         <h4>Objet</h4>
         <p>Les présentes CGV régissent les prestations de jardinage réservées via la plateforme PILOGREEN entre le client et le prestataire.</p>
         <h4>Prix et paiement</h4>
-        <p>Les tarifs sont affichés en euros TTC. Le paiement peut s'effectuer en ligne via Stripe (carte bancaire) ou sur place après la prestation.</p>
+        <p>Les tarifs sont affichés en euros TTC. Le paiement s'effectue en ligne par carte bancaire via Stripe (certifié PCI-DSS niveau 1).</p>
         <h4>Annulation</h4>
         <p>Annulation gratuite jusqu'à 48h avant la prestation. Entre 24h et 48h : frais de 15€. Moins de 24h : prestation due intégralement.</p>
         <h4>Garantie satisfaction</h4>
@@ -1809,15 +1799,8 @@ function closeSuccess() {
 
 // ===== PAYMENT METHOD SELECTION =====
 function selectPayment(method) {
-  selectedPaymentMethod = method;
-  document.getElementById('payCard').classList.toggle('selected', method === 'card');
-  document.getElementById('payCash').classList.toggle('selected', method === 'cash');
-  const btn = document.getElementById('payBtn');
-  if (method === 'card') {
-    btn.innerHTML = 'Payer maintenant <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
-  } else {
-    btn.innerHTML = 'Confirmer la réservation <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
-  }
+  selectedPaymentMethod = 'card';
+  document.getElementById('payCard').classList.add('selected');
 }
 
 // ===== FORM SUBMISSION → PAYMENT =====
@@ -1917,11 +1900,6 @@ function processPayment() {
     document.getElementById('successMsg').textContent =
       'Finalisez votre paiement dans l\'onglet Stripe ouvert. Votre jardinier ' + currentGardener.name +
       ' vous recontactera sous 2h pour confirmer le créneau. Total : ' + d.total + '€.';
-  } else {
-    document.getElementById('successTitle').textContent = 'Réservation confirmée !';
-    document.getElementById('successMsg').textContent =
-      'Merci ! Votre jardinier ' + currentGardener.name +
-      ' vous recontactera sous 2h pour confirmer le créneau. Paiement de ' + d.total + '€ à effectuer sur place.';
   }
 
   document.getElementById('successWhatsapp').href = d.whatsappUrl;
