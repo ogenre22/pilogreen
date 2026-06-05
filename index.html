@@ -1,0 +1,2520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jardinier à Lyon | Tonte, Taille, Entretien Jardin | PILOGREEN</title>
+<meta name="description" content="Réservez un jardinier professionnel à Lyon en 2 minutes. Tonte de pelouse, taille de haies, désherbage. À partir de 32€/h. Assuré RC Pro. Avis vérifiés.">
+<meta name="keywords" content="jardinier Lyon, entretien jardin Lyon, tonte pelouse Lyon, taille haies Lyon, jardinier à domicile Lyon">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#4EA81B">
+<!-- Open Graph -->
+<meta property="og:title" content="Jardinier à Lyon | PILOGREEN — Réservation en 2 minutes">
+<meta property="og:description" content="Jardiniers vérifiés, assurés, disponibles à Lyon. Tonte, taille, désherbage dès 32€/h. Réservez en ligne, payez en sécurité.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pilogreen.fr">
+<meta property="og:locale" content="fr_FR">
+<!-- Schema.org LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "PILOGREEN",
+  "description": "Service de jardinage professionnel à Lyon — tonte de pelouse, taille de haies, désherbage, débroussaillage.",
+  "url": "https://pilogreen.fr",
+  "telephone": "+33-X-XX-XX-XX-XX",
+  "email": "contact@pilogreen.fr",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Lyon",
+    "addressRegion": "Auvergne-Rhône-Alpes",
+    "postalCode": "69000",
+    "addressCountry": "FR"
+  },
+  "geo": {"@type": "GeoCoordinates", "latitude": 45.7640, "longitude": 4.8357},
+  "areaServed": [
+    {"@type": "City", "name": "Lyon"},
+    {"@type": "City", "name": "Villeurbanne"},
+    {"@type": "City", "name": "Caluire-et-Cuire"},
+    {"@type": "City", "name": "Écully"},
+    {"@type": "City", "name": "Tassin-la-Demi-Lune"},
+    {"@type": "City", "name": "Vénissieux"},
+    {"@type": "City", "name": "Bron"}
+  ],
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "08:00",
+    "closes": "19:00"
+  }],
+  "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Cash, Credit Card",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "47",
+    "bestRating": "5"
+  }
+}
+</script>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+<!-- Leaflet.js (carte interactive, 0€) -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- PWA meta (icône écran d'accueil iOS/Android) -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="PILOGREEN">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%234EA81B'/><text y='.9em' font-size='80'>🌿</text></svg>">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#4EA81B;--green-dark:#3A7D15;--green-light:#EBF5E0;--green-bg:#F7FBF2;
+  --orange:#FF6B2C;--orange-hover:#E55A1B;
+  --text:#1a1a1a;--text-light:#555;--text-muted:#888;
+  --bg:#fff;--border:#e5e7eb;--radius:12px;--radius-sm:8px;
+  --shadow:0 2px 12px rgba(0,0,0,.08);--shadow-lg:0 8px 32px rgba(0,0,0,.12);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--green);text-decoration:none}
+.container{max-width:1140px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border:none;border-radius:var(--radius-sm);font-size:1rem;font-weight:600;cursor:pointer;transition:all .2s;text-decoration:none}
+.btn-primary{background:var(--orange);color:#fff}
+.btn-primary:hover{background:var(--orange-hover);transform:translateY(-1px);box-shadow:0 4px 16px rgba(255,107,44,.3)}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:var(--green-dark);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--green);border:2px solid var(--green)}
+.btn-outline:hover{background:var(--green);color:#fff}
+.btn-sm{padding:10px 20px;font-size:.9rem}
+.btn-lg{padding:16px 36px;font-size:1.1rem}
+.section-title{font-size:2rem;font-weight:800;text-align:center;margin-bottom:12px;position:relative}
+.section-title::after{content:'';display:block;width:48px;height:4px;background:linear-gradient(90deg,var(--green),var(--green-dark));border-radius:2px;margin:10px auto 0}
+.section-subtitle{text-align:center;color:var(--text-light);font-size:1.05rem;max-width:600px;margin:0 auto 48px}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:20px;font-size:.75rem;font-weight:600}
+.badge-green{background:var(--green-light);color:var(--green-dark)}
+.badge-gold{background:#FFF3E0;color:#E65100}
+.badge-new{background:#E3F2FD;color:#1565C0}
+
+/* HEADER */
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.98);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:box-shadow .3s}
+header.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.1)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:10px 20px;max-width:1140px;margin:0 auto}
+.logo{height:38px;width:auto}
+/* SVG Logo */
+.logo-svg{display:flex;align-items:center;gap:7px;text-decoration:none;flex-shrink:0}
+.logo-svg-icon{width:34px;height:34px;background:linear-gradient(135deg,var(--green),var(--green-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 8px rgba(78,168,27,.3)}
+.logo-svg-text{font-size:1.18rem;font-weight:800;color:var(--text);letter-spacing:-.3px}
+.logo-svg-text span{color:var(--green)}
+.header-cta{display:flex;gap:10px;align-items:center}
+.header-phone{color:var(--text);font-weight:600;font-size:.9rem;display:none}
+@media(min-width:768px){.header-phone{display:flex;align-items:center;gap:6px}}
+/* NAV MENU */
+.header-nav{display:none;gap:2px;align-items:center}
+@media(min-width:640px){.header-nav{display:flex}}
+.header-nav a{color:var(--text-light);font-size:.82rem;font-weight:600;padding:6px 10px;border-radius:6px;text-decoration:none;transition:all .18s;white-space:nowrap}
+.header-nav a:hover{background:var(--green-bg);color:var(--green-dark)}
+
+/* HERO */
+.hero{padding:120px 20px 80px;background:linear-gradient(150deg,#eaf6d8 0%,#d2eeaa 40%,#c0e893 75%,#b5e47f 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-40%;right:-15%;width:700px;height:700px;background:radial-gradient(circle,rgba(78,168,27,.18) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-20%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(78,168,27,.1) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+/* Floating deco leaves */
+.hero-deco{position:absolute;pointer-events:none;opacity:.18;font-size:3rem;animation:floatLeaf 6s ease-in-out infinite}
+.hero-deco:nth-child(1){top:12%;right:8%;animation-delay:0s}
+.hero-deco:nth-child(2){top:55%;right:22%;animation-delay:2s;font-size:2rem;opacity:.12}
+.hero-deco:nth-child(3){top:25%;right:42%;animation-delay:4s;font-size:1.6rem;opacity:.1}
+@keyframes floatLeaf{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(8deg)}}
+.hero-content{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:40px;align-items:center;position:relative;z-index:1}
+@media(min-width:768px){.hero-content{grid-template-columns:1fr 1fr}}
+.hero h1{font-size:2.4rem;font-weight:800;line-height:1.15;margin-bottom:16px;color:var(--text)}
+@media(min-width:768px){.hero h1{font-size:3rem}}
+.hero h1 span{color:var(--green)}
+.hero-sub{font-size:1.15rem;color:var(--text-light);margin-bottom:32px;line-height:1.5}
+.hero-form{background:#fff;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-lg)}
+.hero-form h3{font-size:1.1rem;font-weight:700;margin-bottom:16px;color:var(--text)}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px;color:var(--text)}
+.form-group select,.form-group input{width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:var(--radius-sm);font-size:1rem;transition:border-color .2s;background:#fff;color:var(--text)}
+.form-group select:focus,.form-group input:focus{outline:none;border-color:var(--green)}
+.service-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.service-pill{padding:8px 16px;border:2px solid var(--border);border-radius:20px;font-size:.85rem;cursor:pointer;transition:all .2s;background:#fff;color:var(--text);font-weight:500}
+.service-pill.active,.service-pill:hover{border-color:var(--green);background:var(--green-light);color:var(--green-dark)}
+.hero-stats{display:flex;gap:32px;margin-top:32px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat .num{font-size:1.5rem;font-weight:800;color:var(--green)}
+.hero-stat .lbl{font-size:.8rem;color:var(--text-muted)}
+.hero-visual{display:none}
+@media(min-width:768px){.hero-visual{display:flex;justify-content:center;align-items:center}}
+.hero-visual-card{background:#fff;border-radius:20px;padding:32px;box-shadow:var(--shadow-lg);transform:rotate(2deg);max-width:340px}
+.hero-visual-card .mini-profile{display:flex;gap:12px;align-items:center;margin-bottom:16px}
+.hero-visual-card .avatar-mini{width:48px;height:48px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.1rem}
+.hero-visual-card .stars{color:#FFC107;font-size:.9rem;letter-spacing:2px}
+.hero-visual-card .price-tag{font-size:1.5rem;font-weight:800;color:var(--green);margin-top:12px}
+
+/* TRUST BAR */
+.trust-bar{background:#fff;border-bottom:1px solid var(--border);padding:14px 0}
+.trust-items{display:flex;justify-content:center;align-items:center;gap:0;flex-wrap:wrap;max-width:1000px;margin:0 auto}
+.trust-item{display:flex;align-items:center;gap:7px;font-size:.82rem;font-weight:600;color:var(--text-light);white-space:nowrap;padding:6px 16px;position:relative}
+.trust-item:not(:last-child)::after{content:'·';position:absolute;right:-2px;color:var(--border);font-size:1.2rem;top:50%;transform:translateY(-50%)}
+.trust-icon{font-size:1.1rem}
+
+/* HOW IT WORKS */
+.how-section{padding:64px 20px 72px;background:var(--bg)}
+.steps{display:grid;grid-template-columns:1fr;gap:16px;max-width:860px;margin:0 auto;position:relative}
+@media(min-width:560px){.steps{grid-template-columns:repeat(3,1fr);gap:0}}
+/* Connector line between steps on desktop */
+@media(min-width:560px){.steps::before{content:'';position:absolute;top:26px;left:calc(16.66% + 26px);right:calc(16.66% + 26px);height:2px;background:linear-gradient(90deg,var(--green-light),var(--green),var(--green-light));z-index:0}}
+.step{text-align:center;padding:24px 16px 28px;border-radius:var(--radius);background:var(--green-bg);position:relative;z-index:1;border:1px solid rgba(78,168,27,.1)}
+@media(min-width:560px){.step{background:transparent;border:none;padding:0 16px 24px}}
+.step-num{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800;margin:0 auto 16px;box-shadow:0 4px 16px rgba(78,168,27,.35);border:3px solid var(--bg);position:relative;z-index:2}
+@media(min-width:560px){.step-num{border-color:#fff}}
+.step-icon{font-size:2rem;margin-bottom:10px}
+.step h3{font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+.step p{color:var(--text-light);font-size:.84rem;line-height:1.5;max-width:190px;margin:0 auto}
+
+/* SERVICES */
+.services-section{padding:80px 20px;background:var(--green-bg)}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:800px;margin:0 auto}
+@media(min-width:768px){.services-grid{grid-template-columns:repeat(4,1fr)}}
+.service-card{background:#fff;border-radius:var(--radius);padding:28px 20px;text-align:center;box-shadow:var(--shadow);transition:transform .2s;cursor:pointer}
+.service-card:hover{transform:translateY(-4px)}
+.service-card .icon{font-size:2.5rem;margin-bottom:12px}
+.service-card h3{font-size:1rem;font-weight:700;margin-bottom:4px}
+.service-card p{color:var(--text-muted);font-size:.8rem}
+
+/* GARDENERS */
+.gardeners-section{padding:80px 20px;background:var(--bg)}
+.gardeners-grid{display:grid;grid-template-columns:1fr;gap:24px;max-width:1000px;margin:0 auto;align-items:start}
+@media(min-width:600px){.gardeners-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:600px) and (max-width:899px){.gardeners-grid .gardener-card:last-child:nth-child(odd){grid-column:1/-1;max-width:calc(50% - 12px);margin-left:auto;margin-right:auto}}
+@media(min-width:900px){.gardeners-grid{grid-template-columns:repeat(3,1fr)}}
+.gardener-card{background:#fff;border:2px solid var(--border);border-radius:var(--radius);padding:24px;transition:all .22s;position:relative;overflow:hidden}
+.gardener-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green-light),var(--green));opacity:0;transition:opacity .22s}
+.gardener-card:hover::before{opacity:1}
+.gardener-card:hover{border-color:var(--green);box-shadow:var(--shadow)}
+.gardener-header{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
+.avatar{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.3rem;flex-shrink:0}
+.avatar-1{background:linear-gradient(135deg,#4EA81B,#7BC950)}
+.avatar-2{background:linear-gradient(135deg,#1565C0,#42A5F5)}
+.avatar-3{background:linear-gradient(135deg,#C62828,#EF5350)}
+.avatar-4{background:linear-gradient(135deg,#E65100,#FF9800)}
+.avatar-5{background:linear-gradient(135deg,#6A1B9A,#AB47BC)}
+.avatar-6{background:linear-gradient(135deg,#00695C,#26A69A)}
+.avatar-7{background:linear-gradient(135deg,#0277BD,#29B6F6)}
+.avatar-8{background:linear-gradient(135deg,#558B2F,#AED581)}
+.avatar-9{background:linear-gradient(135deg,#AD1457,#F06292)}
+.avatar-10{background:linear-gradient(135deg,#37474F,#78909C)}
+.avatar-11{background:linear-gradient(135deg,#F57F17,#FFCA28)}
+.avatar-12{background:linear-gradient(135deg,#1B5E20,#66BB6A)}
+.avatar-13{background:linear-gradient(135deg,#880E4F,#EC407A)}
+.avatar-14{background:linear-gradient(135deg,#01579B,#4FC3F7)}
+.avatar-15{background:linear-gradient(135deg,#4A148C,#CE93D8)}
+.distance-badge{display:inline-flex;align-items:center;gap:3px;font-size:.71rem;font-weight:700;color:var(--green-dark);background:var(--green-light);padding:2px 8px;border-radius:10px;margin-top:3px}
+.location-banner{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--green);border-radius:10px;padding:10px 16px;margin-bottom:16px;font-size:.84rem;color:var(--text-light)}
+.location-banner strong{color:var(--green-dark)}
+.location-banner button{background:none;border:none;font-size:.78rem;color:var(--text-muted);cursor:pointer;text-decoration:underline;padding:0;white-space:nowrap}
+.location-banner button:hover{color:var(--green-dark)}
+.gardener-info h3{font-size:1.05rem;font-weight:700;margin-bottom:2px}
+.gardener-info .rating{display:flex;align-items:center;gap:4px;font-size:.85rem;color:var(--text-muted)}
+.gardener-info .rating .stars{color:#FFC107;letter-spacing:1px}
+.gardener-price{position:absolute;top:24px;right:24px;font-size:1.2rem;font-weight:800;color:var(--green)}
+.gardener-price span{font-size:.8rem;font-weight:400;color:var(--text-muted)}
+.gardener-desc{font-size:.85rem;color:var(--text-light);margin-bottom:12px;line-height:1.5;min-height:60px}
+.gardener-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tag{padding:4px 10px;background:var(--green-light);color:var(--green-dark);border-radius:12px;font-size:.75rem;font-weight:500}
+.gardener-card{cursor:pointer}
+.gardener-card:hover{border-color:var(--green);box-shadow:var(--shadow);transform:translateY(-2px)}
+.gardener-footer{display:flex;flex-direction:column;gap:10px}
+.gardener-meta{display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--text-muted)}
+.gardener-reserve-btn{width:100%;padding:12px;font-size:1rem;font-weight:700;border-radius:var(--radius-sm);background:var(--green);color:#fff;border:none;cursor:pointer;transition:all .2s;letter-spacing:.3px}
+.gardener-reserve-btn:hover{background:var(--green-dark)}
+
+/* ADDRESS AUTOCOMPLETE */
+.address-autocomplete{position:relative}
+.autocomplete-dropdown{position:absolute;top:100%;left:0;right:0;background:#fff;border:2px solid var(--green);border-top:none;border-radius:0 0 var(--radius-sm) var(--radius-sm);z-index:500;max-height:260px;overflow-y:auto;box-shadow:var(--shadow-lg);display:none}
+.autocomplete-dropdown.open{display:block}
+.autocomplete-item{padding:11px 14px;cursor:pointer;font-size:.9rem;border-bottom:1px solid var(--border);transition:background .12s;display:flex;align-items:center;gap:10px}
+.autocomplete-item:last-child{border-bottom:none}
+.autocomplete-item:hover,.autocomplete-item.highlighted{background:var(--green-light)}
+.autocomplete-item .ac-icon{color:var(--green);flex-shrink:0}
+.autocomplete-item .ac-name{font-weight:600;font-size:.88rem;line-height:1.3}
+.autocomplete-item .ac-city{font-size:.76rem;color:var(--text-muted)}
+.autocomplete-loading{padding:12px 14px;font-size:.85rem;color:var(--text-muted);display:flex;align-items:center;gap:8px}
+
+/* SPINNER + ADDRESS VALIDATION */
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-radius:50%;border-top-color:#fff;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.address-error{color:var(--orange);font-size:.82rem;margin-top:6px;display:none;font-weight:500}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+.input-shake{animation:shake .35s ease}
+.input-invalid{border-color:var(--orange)!important}
+
+/* REVIEWS */
+.reviews-section{padding:80px 20px;background:var(--green-bg)}
+.reviews-grid{display:grid;grid-template-columns:1fr;gap:20px;max-width:960px;margin:0 auto}
+@media(min-width:560px){.reviews-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:900px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}
+.review-card{background:#fff;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:box-shadow .2s}
+.review-card:hover{box-shadow:var(--shadow-lg)}
+.review-card::before{content:'\201C';position:absolute;top:-8px;left:16px;font-size:5rem;line-height:1;color:var(--green-light);font-family:Georgia,serif;pointer-events:none;z-index:0}
+.review-stars{color:#FFC107;font-size:.95rem;letter-spacing:1px;margin-bottom:10px;position:relative;z-index:1}
+.review-text{font-size:.88rem;color:var(--text-light);margin-bottom:16px;font-style:italic;line-height:1.6;position:relative;z-index:1}
+.review-service-tag{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:600;color:var(--green-dark);background:var(--green-light);padding:3px 9px;border-radius:10px;margin-bottom:14px}
+.review-author{display:flex;align-items:center;gap:10px;border-top:1px solid var(--border);padding-top:14px}
+.review-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green-dark));display:flex;align-items:center;justify-content:center;color:#fff;font-size:.8rem;font-weight:700;flex-shrink:0}
+.review-name{font-size:.85rem;font-weight:700;color:var(--text)}
+.review-loc{font-size:.74rem;color:var(--text-muted);margin-top:1px}
+
+/* GUARANTEES */
+.guarantees-section{padding:64px 20px 72px;background:var(--bg)}
+.guarantees-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:860px;margin:0 auto}
+@media(min-width:768px){.guarantees-grid{grid-template-columns:repeat(4,1fr);gap:24px}}
+.guarantee{text-align:center;padding:28px 20px;background:var(--green-bg);border-radius:var(--radius);border:1px solid rgba(78,168,27,.15);transition:all .2s}
+.guarantee:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(78,168,27,.3)}
+.guarantee .g-icon-wrap{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--green-light),#d0eeaa);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:1.7rem;box-shadow:0 4px 12px rgba(78,168,27,.2)}
+.guarantee .g-icon{font-size:1.7rem}
+.guarantee h4{font-size:.92rem;font-weight:700;margin-bottom:5px;color:var(--text)}
+.guarantee p{font-size:.78rem;color:var(--text-muted);line-height:1.5}
+
+/* FAQ */
+.faq-section{padding:80px 20px;background:var(--green-bg)}
+.faq-list{max-width:700px;margin:0 auto}
+.faq-item{background:#fff;border-radius:var(--radius-sm);margin-bottom:12px;overflow:hidden;border:1px solid var(--border)}
+.faq-q{padding:18px 20px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.95rem;transition:background .2s}
+.faq-q:hover{background:var(--green-bg)}
+.faq-q::after{content:'+';font-size:1.3rem;color:var(--green);transition:transform .2s;font-weight:400}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 20px}
+.faq-item.open .faq-a{max-height:300px;padding:0 20px 18px}
+.faq-a p{color:var(--text-light);font-size:.9rem;line-height:1.6}
+
+/* CTA FINAL */
+.cta-section{padding:88px 20px;background:linear-gradient(135deg,#2d6e0f 0%,var(--green-dark) 40%,var(--green) 100%);text-align:center;color:#fff;position:relative;overflow:hidden}
+.cta-section::before{content:'🌿';position:absolute;top:-10px;left:5%;font-size:8rem;opacity:.06;transform:rotate(-20deg);pointer-events:none}
+.cta-section::after{content:'🌿';position:absolute;bottom:-20px;right:5%;font-size:10rem;opacity:.06;transform:rotate(15deg) scaleX(-1);pointer-events:none}
+.cta-section h2{font-size:2.1rem;font-weight:800;margin-bottom:12px;position:relative}
+.cta-section h2::after{content:'';display:block;width:60px;height:4px;background:rgba(255,255,255,.5);border-radius:2px;margin:12px auto 0}
+.cta-section p{font-size:1.05rem;opacity:.88;margin-bottom:36px;max-width:500px;margin-left:auto;margin-right:auto;position:relative;line-height:1.6}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative}
+.btn-white{background:#fff;color:var(--green-dark);font-weight:700;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+.btn-white:hover{background:#f8fff4;transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,.25)}
+.btn-whatsapp{background:#25D366;color:#fff;box-shadow:0 4px 16px rgba(37,211,102,.3)}
+.btn-whatsapp:hover{background:#1ebe57;transform:translateY(-2px)}
+
+/* FOOTER */
+footer{background:#111;color:#999;padding:56px 20px 24px;position:relative}
+footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green-dark),var(--green),var(--green-dark))}
+.footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:40px}
+@media(min-width:768px){.footer-inner{grid-template-columns:2fr 1fr 1fr}}
+.footer-brand{margin-bottom:16px}
+.footer-logo-svg{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.footer-logo-icon{width:30px;height:30px;background:linear-gradient(135deg,var(--green),var(--green-dark));border-radius:7px;display:flex;align-items:center;justify-content:center}
+.footer-brand .logo-text{font-size:1.25rem;font-weight:800;color:#fff;margin-bottom:8px}
+.footer-brand .logo-text span{color:var(--green)}
+.footer-col h4{color:#fff;font-size:.8rem;font-weight:700;margin-bottom:14px;text-transform:uppercase;letter-spacing:1.5px;padding-bottom:8px;border-bottom:1px solid #2a2a2a}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:9px}
+.footer-col a{color:#888;font-size:.84rem;transition:color .2s;display:flex;align-items:center;gap:5px}
+.footer-col a:hover{color:var(--green)}
+.footer-bottom{text-align:center;margin-top:40px;padding-top:20px;border-top:1px solid #222;font-size:.78rem;color:#666}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.modal-overlay.active{display:flex}
+.modal{background:#fff;border-radius:var(--radius);max-width:520px;width:100%;max-height:90vh;overflow-y:auto;position:relative;animation:modalIn .3s ease}
+@keyframes modalIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.modal-header{padding:24px 24px 0;display:flex;justify-content:space-between;align-items:flex-start}
+.modal-header h2{font-size:1.3rem;font-weight:700}
+.modal-close{width:36px;height:36px;border-radius:50%;border:none;background:var(--green-bg);cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:background .2s;color:var(--text)}
+.modal-close:hover{background:#e0e0e0}
+.modal-body{padding:24px}
+.modal-body .form-group{margin-bottom:14px}
+.modal-body textarea{width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:var(--radius-sm);font-size:1rem;font-family:inherit;resize:vertical;min-height:80px;transition:border-color .2s}
+.modal-body textarea:focus{outline:none;border-color:var(--green)}
+.modal-gardener{display:flex;align-items:center;gap:12px;padding:14px;background:var(--green-bg);border-radius:var(--radius-sm);margin-bottom:20px}
+.modal-gardener .avatar{width:44px;height:44px;font-size:1rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.success-modal{text-align:center;padding:48px 32px}
+.success-modal .check{font-size:3rem;margin-bottom:16px}
+.success-modal h2{font-size:1.4rem;margin-bottom:8px;color:var(--green)}
+.success-modal p{color:var(--text-light);margin-bottom:24px}
+
+/* PRICE CALCULATOR */
+.price-calc{background:var(--green-bg);border:2px solid var(--green);border-radius:var(--radius-sm);padding:16px;margin-top:6px;margin-bottom:14px}
+.price-row{display:flex;justify-content:space-between;align-items:center;font-size:.95rem;color:var(--text-light);margin-bottom:6px}
+.price-row:last-child{margin-bottom:0;padding-top:8px;border-top:2px solid var(--green);font-size:1.15rem;font-weight:700;color:var(--text)}
+.price-row .price-val{color:var(--green-dark);font-weight:700}
+.duration-select{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.duration-btn{padding:10px 16px;border:2px solid var(--border);border-radius:var(--radius-sm);background:#fff;cursor:pointer;font-size:.9rem;font-weight:600;transition:all .2s}
+.duration-btn:hover{border-color:var(--green)}
+.duration-btn.active{border-color:var(--green);background:var(--green-light);color:var(--green-dark)}
+
+/* PAYMENT MODAL */
+.payment-modal .recap-section{margin-bottom:20px}
+.payment-modal .recap-title{font-size:.8rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:10px;font-weight:600}
+.payment-modal .recap-card{background:var(--green-bg);border-radius:var(--radius-sm);padding:16px}
+.payment-modal .recap-line{display:flex;justify-content:space-between;font-size:.95rem;padding:4px 0}
+.payment-modal .recap-line.total{border-top:2px solid var(--green);margin-top:8px;padding-top:10px;font-size:1.2rem;font-weight:700}
+.payment-modal .recap-line.total .recap-val{color:var(--green)}
+.payment-modal .recap-val{font-weight:600}
+.payment-methods{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.payment-method{display:flex;align-items:center;gap:14px;padding:16px;border:2px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;transition:all .2s}
+.payment-method:hover{border-color:var(--green);background:var(--green-bg)}
+.payment-method.selected{border-color:var(--green);background:var(--green-bg)}
+.payment-method-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+.payment-method-icon.stripe{background:#635BFF;color:#fff}
+.payment-method-icon.cash{background:var(--green);color:#fff}
+.payment-method-info h4{font-size:1rem;margin-bottom:2px}
+.payment-method-info p{font-size:.8rem;color:var(--text-muted)}
+.payment-secure{display:flex;align-items:center;gap:6px;justify-content:center;font-size:.8rem;color:var(--text-muted);margin-top:16px}
+
+/* FLOATING CTA MOBILE */
+.floating-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;padding:12px 20px;box-shadow:0 -4px 20px rgba(0,0,0,.1);z-index:50;display:flex;gap:10px}
+@media(min-width:768px){.floating-cta{display:none}}
+.floating-cta .btn{flex:1;padding:14px;font-size:.9rem}
+
+/* PHONE BANNER */
+.phone-banner{background:var(--green-dark);color:#fff;text-align:center;padding:8px;font-size:.85rem}
+.phone-banner a{color:#fff;font-weight:600}
+
+/* WEATHER BANNER */
+.weather-banner{display:none;color:#fff;text-align:center;padding:11px 48px;font-size:.88rem;font-weight:600;position:relative;z-index:99;line-height:1.4}
+.weather-banner.weather-sunny{background:linear-gradient(135deg,#E65100,#FF8F00)}
+.weather-banner.weather-season{background:linear-gradient(135deg,var(--green-dark),#2d8a12)}
+.wb-close{position:absolute;right:16px;top:50%;transform:translateY(-50%);cursor:pointer;background:none;border:none;color:rgba(255,255,255,.75);font-size:1.1rem;line-height:1;padding:4px}
+.wb-close:hover{color:#fff}
+.wb-cta{color:#fff;font-weight:800;text-decoration:underline;cursor:pointer;margin-left:8px;white-space:nowrap}
+
+/* GUARANTEE MICRO-COPY */
+.cta-guarantee{text-align:center;font-size:.78rem;color:var(--text-muted);margin-top:10px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+
+/* UTILITY */
+.text-green{color:var(--green)}
+.text-center{text-align:center}
+.mt-2{margin-top:16px}
+.mb-4{margin-bottom:32px}
+.hidden{display:none}
+
+/* GEOLOC BUTTON */
+.geoloc-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:9px 14px;background:var(--green-bg);border:1.5px dashed var(--green);border-radius:var(--radius-sm);font-size:.83rem;font-weight:600;color:var(--green-dark);cursor:pointer;transition:all .2s;margin-top:8px;margin-bottom:4px}
+.geoloc-btn:hover{background:var(--green-light);border-style:solid}
+.geoloc-btn:disabled{opacity:.6;pointer-events:none}
+
+/* GARDENER FILTER */
+.gardener-filter{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.filter-btn{padding:9px 22px;border:2px solid var(--border);border-radius:20px;font-size:.85rem;font-weight:600;cursor:pointer;background:#fff;color:var(--text-light);transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.filter-btn:hover{border-color:var(--green);color:var(--green)}
+.filter-btn.active{border-color:var(--green);background:var(--green);color:#fff}
+.filter-count{background:rgba(255,255,255,.25);color:inherit;font-size:.72rem;font-weight:700;padding:1px 6px;border-radius:8px;min-width:18px;text-align:center}
+.filter-btn:not(.active) .filter-count{background:var(--green-light);color:var(--green-dark)}
+.gardener-card.hidden-by-filter{display:none!important}
+.equip-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:8px;font-size:.72rem;font-weight:600;margin-top:5px}
+.equip-badge.has{background:#e8f5e9;color:#2e7d32}
+.equip-badge.no{background:#FFF8E1;color:#F57F17;border:1px solid #FFE082}
+.equip-note-box{background:#FFFBF0;border-left:3px solid #FFB300;border-radius:0 8px 8px 0;padding:8px 12px;margin:-4px 0 12px;font-size:.78rem;line-height:1.5}
+.equip-note-box .eq-value{color:#2e7d32;font-weight:600;margin-bottom:3px}
+.equip-note-box .eq-req{color:#7c4a00;font-weight:500}
+
+/* MAP SECTION */
+.map-section{padding:72px 20px;background:var(--green-bg)}
+#interventionMap{height:360px;border-radius:var(--radius);box-shadow:var(--shadow-lg);border:2px solid rgba(78,168,27,.2)}
+.map-legend{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.map-legend-item{display:flex;align-items:center;gap:7px;font-size:.83rem;color:var(--text-light)}
+.map-dot{width:13px;height:13px;border-radius:50%;flex-shrink:0}
+.map-out-zone{text-align:center;margin-top:16px;font-size:.85rem;color:var(--text-muted)}
+.map-out-zone a{color:var(--green);font-weight:600;text-decoration:underline;cursor:pointer}
+
+/* SOCIAL PROOF TOASTS */
+.toast-container{position:fixed;bottom:100px;left:16px;z-index:8000;pointer-events:none;display:flex;flex-direction:column-reverse;gap:8px;max-width:280px}
+@media(min-width:768px){.toast-container{bottom:28px;max-width:300px}}
+.sp-toast{background:#fff;border-radius:10px;padding:11px 14px;box-shadow:0 4px 20px rgba(0,0,0,.12);border-left:3px solid var(--green);font-size:.78rem;line-height:1.45;opacity:0;transform:translateX(-16px) scale(.97);transition:all .4s cubic-bezier(.34,1.56,.64,1);pointer-events:none}
+.sp-toast.show{opacity:1;transform:translateX(0) scale(1)}
+.sp-toast.hide{opacity:0;transform:translateX(-16px) scale(.97)}
+.toast-who{font-weight:700;color:var(--text)}
+.toast-what{color:var(--text-muted)}
+
+/* EXIT INTENT POPUP */
+.exit-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9500;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.exit-overlay.active{display:flex}
+.exit-popup{background:#fff;border-radius:var(--radius);max-width:420px;width:100%;padding:40px 32px;text-align:center;position:relative;animation:modalIn .3s ease}
+.exit-popup .exit-emoji{font-size:3rem;margin-bottom:14px}
+.exit-popup h3{font-size:1.35rem;font-weight:800;margin-bottom:10px}
+.exit-popup p{color:var(--text-light);margin-bottom:24px;line-height:1.6;font-size:.95rem}
+.exit-close-btn{position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--text-muted);line-height:1;padding:4px}
+
+/* SCROLL ANIMATIONS */
+.fade-in-up{opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease}
+.fade-in-up.visible{opacity:1;transform:translateY(0)}
+.fade-in-up:nth-child(2){transition-delay:.08s}
+.fade-in-up:nth-child(3){transition-delay:.16s}
+.fade-in-up:nth-child(4){transition-delay:.24s}
+.fade-in-up:nth-child(5){transition-delay:.32s}
+.fade-in-up:nth-child(6){transition-delay:.4s}
+
+/* SUBSCRIPTION SECTION */
+.subscription-section{padding:88px 20px;background:linear-gradient(180deg,#f7fbf2 0%,#edf7e0 100%)}
+.subscription-grid{display:grid;grid-template-columns:1fr;gap:24px;max-width:900px;margin:0 auto}
+@media(min-width:768px){.subscription-grid{grid-template-columns:repeat(3,1fr);align-items:start}}
+.sub-card{background:#fff;border-radius:16px;padding:32px 24px;text-align:center;box-shadow:0 4px 24px rgba(0,0,0,.07);position:relative;border:2px solid var(--border);transition:all .25s}
+.sub-card:hover{box-shadow:0 8px 36px rgba(0,0,0,.12);transform:translateY(-4px)}
+.sub-card.featured{border-color:var(--green);box-shadow:0 8px 32px rgba(78,168,27,.2);transform:scale(1.04)}
+.sub-card.featured:hover{transform:scale(1.04) translateY(-4px)}
+.sub-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;padding:5px 18px;border-radius:20px;font-size:.72rem;font-weight:700;white-space:nowrap;letter-spacing:.5px;box-shadow:0 3px 10px rgba(78,168,27,.4)}
+.sub-price{font-size:2rem;font-weight:800;color:var(--green);margin:14px 0 4px}
+.sub-price span{font-size:.88rem;font-weight:400;color:var(--text-muted)}
+.sub-features{list-style:none;margin:14px 0 22px;text-align:left}
+.sub-features li{padding:7px 0;font-size:.85rem;color:var(--text-light);display:flex;align-items:flex-start;gap:9px;border-bottom:1px solid rgba(0,0,0,.06)}
+.sub-features li:last-child{border:none}
+.sub-features li::before{content:'✓';color:var(--green);font-weight:800;flex-shrink:0;margin-top:2px;font-size:.9rem}
+.sub-equip-warn{font-size:.75rem;color:var(--orange);font-weight:600;margin-top:-6px;margin-bottom:8px;text-align:left;padding-left:16px}
+
+/* PWA INSTALL BANNER */
+.pwa-banner{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--green-dark);color:#fff;padding:12px 20px;z-index:3500;align-items:center;gap:12px;font-size:.85rem}
+.pwa-banner.show{display:flex}
+.pwa-banner-text{flex:1}
+.pwa-banner-text strong{display:block;font-size:.9rem}
+.pwa-banner button{padding:8px 16px;border-radius:6px;border:none;cursor:pointer;font-weight:600;font-size:.83rem;flex-shrink:0}
+.pwa-install-btn{background:#fff;color:var(--green-dark)}
+.pwa-dismiss-btn{background:rgba(255,255,255,.2);color:#fff}
+
+/* LEGAL MODAL TABS */
+.legal-tabs{display:flex;border-bottom:2px solid var(--border);margin-bottom:20px}
+.legal-tab{padding:10px 18px;font-size:.88rem;font-weight:600;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;color:var(--text-muted);transition:all .2s}
+.legal-tab.active{border-color:var(--green);color:var(--green)}
+.legal-content{display:none;font-size:.88rem;color:var(--text-light);line-height:1.7;max-height:55vh;overflow-y:auto}
+.legal-content.active{display:block}
+.legal-content h4{font-size:.95rem;font-weight:700;color:var(--text);margin:16px 0 6px}
+.legal-content p{margin-bottom:10px}
+
+/* ADMIN PANEL */
+#adminPanel{display:none;position:fixed;right:0;top:0;bottom:0;width:380px;background:#fff;border-left:2px solid var(--green);z-index:9999;box-shadow:-4px 0 24px rgba(0,0,0,.15);overflow:hidden;flex-direction:column}
+#adminPanel.open{display:flex}
+.admin-header{background:var(--green-dark);color:#fff;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.admin-header h3{font-size:1rem;font-weight:700;margin:0}
+.admin-header-btns{display:flex;gap:8px}
+.admin-close-btn{background:rgba(255,255,255,.2);border:none;color:#fff;border-radius:6px;padding:6px 10px;cursor:pointer;font-size:.8rem;font-weight:600}
+.admin-close-btn:hover{background:rgba(255,255,255,.35)}
+.admin-tabs{display:flex;border-bottom:2px solid var(--border);flex-shrink:0;background:#fafafa}
+.admin-tab{flex:1;padding:10px 6px;text-align:center;font-size:.78rem;font-weight:600;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;color:var(--text-muted);transition:all .2s}
+.admin-tab.active{border-color:var(--green);color:var(--green);background:#fff}
+.admin-body{flex:1;overflow-y:auto;padding:16px}
+.admin-section{display:none}
+.admin-section.active{display:block}
+.admin-form-row{margin-bottom:10px}
+.admin-form-row label{display:block;font-size:.75rem;font-weight:600;color:var(--text-muted);margin-bottom:3px}
+.admin-form-row input,.admin-form-row textarea{width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:6px;font-size:.85rem;font-family:inherit}
+.admin-form-row input:focus,.admin-form-row textarea:focus{outline:none;border-color:var(--green)}
+.admin-form-row textarea{resize:vertical;min-height:56px}
+.admin-save-btn{width:100%;padding:12px;background:var(--green);color:#fff;border:none;border-radius:8px;font-size:.95rem;font-weight:700;cursor:pointer;margin-top:8px}
+.admin-save-btn:hover{background:var(--green-dark)}
+.admin-reset-btn{width:100%;padding:10px;background:#fff;color:#e53935;border:1.5px solid #e53935;border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;margin-top:8px}
+.admin-item{border:1.5px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden}
+.admin-item-header{padding:10px 12px;cursor:pointer;display:flex;align-items:center;gap:10px;font-size:.85rem;background:#fafafa;user-select:none}
+.admin-item-header:hover{background:var(--green-bg)}
+.admin-item-body{display:none;padding:12px;border-top:1px solid var(--border)}
+.admin-item.open .admin-item-body{display:block}
+.admin-section-title{font-size:.8rem;text-transform:uppercase;letter-spacing:1px;font-weight:700;color:var(--text-muted);margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+#adminToast{position:fixed;bottom:24px;right:24px;background:var(--green-dark);color:#fff;padding:12px 20px;border-radius:8px;font-size:.9rem;font-weight:600;z-index:10001;opacity:0;transform:translateY(20px);transition:all .3s;pointer-events:none}
+.admin-toggle-btn{position:fixed;right:0;top:50%;transform:translateY(-50%);background:var(--green-dark);color:#fff;border:none;border-radius:8px 0 0 8px;padding:12px 8px;writing-mode:vertical-rl;font-size:.75rem;font-weight:700;cursor:pointer;z-index:9998;letter-spacing:1px;display:none}
+</style>
+</head>
+<body>
+
+<!-- HEADER (contient les bannières météo + téléphone) -->
+<header id="header">
+  <!-- WEATHER BANNER (rempli dynamiquement par Open-Meteo) -->
+  <div class="weather-banner" id="weatherBanner"></div>
+  <!-- PHONE BANNER -->
+  <div class="phone-banner">
+    Une question ? Appelez-nous : <a href="tel:+33XXXXXXXXX">07 XX XX XX XX</a>
+  </div>
+  <div class="header-inner">
+    <a class="logo-svg" href="#hero">
+      <div class="logo-svg-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12M12 12C12 7 7 3 3 5c0 5 4 9 9 7M12 12c0-5 5-9 9-7-1 5-5 9-9 7"/></svg>
+      </div>
+      <span class="logo-svg-text">PILO<span>GREEN</span></span>
+    </a>
+    <nav class="header-nav" id="headerNav">
+      <a href="#jardiniers" onclick="document.getElementById('headerNav').classList.remove('open')">Jardiniers</a>
+      <a href="#avis" onclick="document.getElementById('headerNav').classList.remove('open')">Avis</a>
+      <a href="#abonnements" onclick="document.getElementById('headerNav').classList.remove('open')">Tarifs</a>
+      <a href="#faq" onclick="document.getElementById('headerNav').classList.remove('open')">FAQ</a>
+    </nav>
+    <div class="header-cta">
+      <a href="tel:+33XXXXXXXXX" class="header-phone">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        07 XX XX XX XX
+      </a>
+      <button class="btn btn-primary btn-sm" onclick="headerReserver()">Trouver un jardinier</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-deco" aria-hidden="true">🌿</div>
+  <div class="hero-deco" aria-hidden="true">🍃</div>
+  <div class="hero-deco" aria-hidden="true">🌱</div>
+  <div class="hero-content">
+    <div>
+      <h1>Votre jardin entretenu<br>en <span>quelques clics</span></h1>
+      <p class="hero-sub">Trouvez un jardinier de confiance à Lyon et alentours. <strong>À partir de 32€/h · Assuré RC Pro · Disponible sous 48h.</strong></p>
+
+      <div class="hero-form">
+        <h3>De quel service avez-vous besoin ?</h3>
+        <div class="service-pills" id="heroPills">
+          <div class="service-pill active" data-service="Tonte de pelouse">Tonte de pelouse</div>
+          <div class="service-pill" data-service="Taille de haies">Taille de haies</div>
+          <div class="service-pill" data-service="Désherbage">Désherbage</div>
+          <div class="service-pill" data-service="Débroussaillage">Débroussaillage</div>
+        </div>
+        <div class="form-group">
+          <label for="heroAddress">Adresse de votre jardin</label>
+          <div class="address-autocomplete">
+            <input type="text" id="heroAddress" placeholder="Ex: 15 Rue de la République, 69002 Lyon" oninput="onAddressInput(this,'heroDropdown')" onkeydown="onAddressKeydown(event,'heroDropdown')" autocomplete="off">
+            <div class="autocomplete-dropdown" id="heroDropdown"></div>
+          </div>
+          <button class="geoloc-btn" id="geolocBtn" type="button" onclick="useMyLocation()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="8" stroke-dasharray="4 3"/></svg>
+            📍 Utiliser ma position GPS
+          </button>
+          <p class="address-error" id="heroAddressError">⚠️ Entrez votre adresse pour continuer</p>
+        </div>
+        <button class="btn btn-primary btn-lg" style="width:100%" id="heroCta" onclick="heroReserver()">
+          Réserver un jardinier maintenant
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <div class="cta-guarantee">
+          <span>✅ Sans engagement</span>
+          <span>🛡️ Satisfait ou on revient gratuitement</span>
+          <span>🔒 Paiement sécurisé</span>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num" id="statGardens" data-target="127" data-suffix="+">127+</div><div class="lbl">Jardins entretenus</div></div>
+        <div class="hero-stat"><div class="num" id="statRating">4.8/5</div><div class="lbl">Note moyenne</div></div>
+        <div class="hero-stat"><div class="num">Lyon</div><div class="lbl">et alentours</div></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-visual-card" onclick="heroReserver()" style="cursor:pointer">
+        <div style="font-size:.75rem;color:var(--green);font-weight:600;margin-bottom:12px">✅ JARDINIER DISPONIBLE</div>
+        <div class="mini-profile">
+          <div class="avatar-mini">TM</div>
+          <div>
+            <div style="font-weight:700">Thomas M.</div>
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div style="font-size:.75rem;color:var(--text-muted)">47 avis · Expert vert</div>
+          </div>
+        </div>
+        <div style="font-size:.85rem;color:var(--text-light);margin-bottom:16px">Tonte, Taille de haies, Désherbage</div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="price-tag">39 &euro;/h</div>
+          <button class="btn btn-green btn-sm" onclick="event.stopPropagation();heroReserver()">Réserver</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-items">
+    <div class="trust-item"><span class="trust-icon">&#9989;</span> Profils vérifiés</div>
+    <div class="trust-item"><span class="trust-icon">&#128737;</span> RC Pro assurée</div>
+    <div class="trust-item"><span class="trust-icon">&#128248;</span> Photos avant/après</div>
+    <div class="trust-item"><span class="trust-icon">&#128274;</span> Paiement Stripe sécurisé</div>
+    <div class="trust-item"><span class="trust-icon">&#11088;</span> Avis clients vérifiés</div>
+    <div class="trust-item"><span class="trust-icon">&#127968;</span> Entreprise immatriculée</div>
+  </div>
+</div>
+
+<!-- JARDINIERS — 2e position : le visiteur veut savoir QUI vient chez lui avant tout -->
+<section class="gardeners-section" id="jardiniers">
+  <div class="container">
+    <h2 class="section-title">Votre jardinier à Lyon — dès ce week-end</h2>
+    <p class="section-subtitle">Chaque profil est vérifié, assuré RC Pro. <strong>Pros avec matériel inclus</strong> ou <strong>étudiants à tarif réduit</strong> — vous choisissez.</p>
+    <!-- FILTRE PRO / ÉTUDIANT -->
+    <div class="gardener-filter">
+      <button type="button" class="filter-btn active" data-filter="all" onclick="filterGardeners('all')">🌿 Tous <span class="filter-count" id="countAll"></span></button>
+      <button type="button" class="filter-btn" data-filter="pro" onclick="filterGardeners('pro')">🔧 Pros · Matériel fourni <span class="filter-count" id="countPro"></span></button>
+      <button type="button" class="filter-btn" data-filter="etudiant" onclick="filterGardeners('etudiant')">🎓 Étudiants · Tarif réduit <span class="filter-count" id="countEtu"></span></button>
+    </div>
+    <div id="locationBanner" style="display:none"></div>
+    <div class="gardeners-grid" id="gardenersGrid"></div>
+    <p style="text-align:center;font-size:.8rem;color:var(--text-muted);margin-top:16px">
+      🔧 <strong>Pro</strong> : tout le matériel fourni (tondeuse, taille-haies, souffleur) &nbsp;·&nbsp; 🧰 <strong>Étudiant</strong> : aucun matériel fourni — vous devez disposer de tous les outils
+    </p>
+  </div>
+</section>
+
+<!-- AVIS CLIENTS — 3e position : preuve sociale immédiate après avoir vu les profils -->
+<section class="reviews-section" id="avis">
+  <div class="container">
+    <h2 class="section-title">Ils ont réservé. Voilà ce qu'ils pensent.</h2>
+    <p class="section-subtitle">Avis vérifiés de clients lyonnais ayant utilisé PILOGREEN — note moyenne <strong>4.8/5</strong> · <strong>8 avis récents</strong>.</p>
+    <div class="reviews-grid" id="reviewsGrid"></div>
+    <div style="text-align:center;margin-top:32px">
+      <p style="font-size:.9rem;color:var(--text-muted);margin-bottom:14px">Rejoignez <strong>127+ jardins lyonnais</strong> déjà entretenus par PILOGREEN</p>
+      <button class="btn btn-primary" onclick="heroReserver()" style="padding:15px 36px;font-size:1rem;box-shadow:0 4px 18px rgba(78,168,27,.35)">Réserver mon jardinier →</button>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTIES — 4e position : lever les peurs AVANT d'expliquer le processus -->
+<section class="guarantees-section">
+  <div class="container">
+    <h2 class="section-title">Réservez l'esprit tranquille</h2>
+    <p class="section-subtitle">Un inconnu dans votre jardin ? On comprend. Voici pourquoi vous pouvez nous faire confiance.</p>
+    <div class="guarantees-grid">
+      <div class="guarantee">
+        <div class="g-icon-wrap"><div class="g-icon">🛡️</div></div>
+        <h4>RC Pro assurée</h4>
+        <p>Dommages couverts à chaque prestation</p>
+      </div>
+      <div class="guarantee">
+        <div class="g-icon-wrap"><div class="g-icon">✅</div></div>
+        <h4>Profils vérifiés</h4>
+        <p>Identité et compétences contrôlées</p>
+      </div>
+      <div class="guarantee">
+        <div class="g-icon-wrap"><div class="g-icon">📷</div></div>
+        <h4>Photos avant/après</h4>
+        <p>Preuve visuelle de chaque prestation</p>
+      </div>
+      <div class="guarantee">
+        <div class="g-icon-wrap"><div class="g-icon">💪</div></div>
+        <h4>Satisfait ou on revient</h4>
+        <p>Résultat garanti ou nouvelle intervention gratuite</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMENT CA MARCHE — 5e position : maintenant qu'ils font confiance, expliquer le processus -->
+<section class="how-section" id="comment-ca-marche">
+  <div class="container">
+    <h2 class="section-title">Réservé en 2 minutes chrono</h2>
+    <p class="section-subtitle">Pas de devis à attendre, pas de paperasse. Choisissez votre jardinier et c'est réglé.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-icon">&#127793;</div>
+        <h3>Choisissez votre service</h3>
+        <p>Tonte, taille de haies, désherbage… Sélectionnez et entrez votre adresse Lyon.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-icon">&#128100;</div>
+        <h3>Votre jardinier confirme sous 2h</h3>
+        <p>Le meilleur profil disponible près de chez vous — pro ou étudiant selon votre besoin.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-icon">&#127775;</div>
+        <h3>Profitez de votre jardin</h3>
+        <p>Votre jardinier intervient au créneau choisi. Photos avant/après envoyées par WhatsApp.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE D'INTERVENTION — 6e position : vérification logistique après désir créé -->
+<section class="map-section" id="zone">
+  <div class="container">
+    <h2 class="section-title">On intervient chez vous à Lyon ?</h2>
+    <p class="section-subtitle">PILOGREEN couvre Lyon et tout le Grand Lyon — 18 km autour du centre. Vérifiez votre adresse.</p>
+    <div id="interventionMap"></div>
+    <div class="map-legend">
+      <div class="map-legend-item"><div class="map-dot" style="background:rgba(78,168,27,.5);border:2px solid #4EA81B"></div>Zone couverte</div>
+      <div class="map-legend-item"><div class="map-dot" style="background:#FF6B2C"></div>Prestations récentes</div>
+    </div>
+    <p class="map-out-zone">Votre adresse est hors zone ? <a onclick="openExitZoneModal();return false;">Laissez votre email — on arrive bientôt.</a></p>
+  </div>
+</section>
+
+<!-- MINI-FAQ EXPRESS — remplace la section Services redondante, répond aux 3 questions clés avant les abonnements -->
+<section id="services" style="padding:56px 20px;background:var(--green-bg)">
+  <div class="container" style="max-width:760px">
+    <h2 class="section-title" style="margin-bottom:8px">Les questions qu'on nous pose le plus</h2>
+    <p class="section-subtitle" style="margin-bottom:32px">Avant de réserver, voici ce qui compte vraiment.</p>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="background:#fff;border-radius:12px;padding:18px 20px;border-left:4px solid var(--green)">
+        <div style="font-weight:700;color:var(--text);margin-bottom:5px">💶 Combien ça coûte ?</div>
+        <div style="font-size:.9rem;color:var(--text-light)">De <strong>32€/h</strong> (étudiant, votre matériel) à <strong>39€/h</strong> (pro, matériel fourni). Prix affiché avant réservation, aucune surprise. Paiement après la prestation.</div>
+      </div>
+      <div style="background:#fff;border-radius:12px;padding:18px 20px;border-left:4px solid var(--orange)">
+        <div style="font-weight:700;color:var(--text);margin-bottom:5px">🔧 Dois-je fournir le matériel ?</div>
+        <div style="font-size:.9rem;color:var(--text-light)">Ça dépend du profil. Les <strong>Pros</strong> apportent tout leur matériel (tondeuse, taille-haies, souffleur, débroussailleuse). Les <strong>étudiants</strong> n'ont <em>aucun</em> matériel — vous devez fournir tous les outils. En échange, leur tarif est jusqu'à 7€/h moins cher.</div>
+      </div>
+      <div style="background:#fff;border-radius:12px;padding:18px 20px;border-left:4px solid #1565C0">
+        <div style="font-weight:700;color:var(--text);margin-bottom:5px">🗓 Quand puis-je être pris en charge ?</div>
+        <div style="font-size:.9rem;color:var(--text-light)">Sous <strong>48h</strong> en semaine, dès <strong>ce week-end</strong> si vous réservez avant vendredi. Des créneaux sont disponibles les samedi et dimanche matin. Aucun engagement de durée.</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:24px">
+      <button class="btn btn-primary" onclick="heroReserver()" style="padding:14px 32px;font-size:1rem">Réserver maintenant — 2 minutes chrono →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ABONNEMENTS — 8e position : upsell naturel après que le désir et la confiance sont établis -->
+<section class="subscription-section" id="abonnements">
+  <div class="container">
+    <h2 class="section-title">Plus simple encore : l'abonnement mensuel</h2>
+    <p class="section-subtitle">Votre jardin entretenu automatiquement. Vous ne pensez plus à rien.</p>
+    <div class="subscription-grid">
+
+      <div class="sub-card fade-in-up">
+        <div style="font-size:2rem;margin-bottom:10px">🎓</div>
+        <h3 style="font-size:1.05rem;font-weight:800">Essentiel</h3>
+        <p style="font-size:.78rem;color:var(--text-muted);margin-top:3px">Jardinier étudiant</p>
+        <div class="sub-price">64€<span>/mois</span></div>
+        <p class="sub-equip-warn">⚠️ Vous devez avoir le matériel (tondeuse…)</p>
+        <ul class="sub-features">
+          <li>Tonte mensuelle (2h)</li>
+          <li>Surface jusqu'à 150 m²</li>
+          <li>Désherbage inclus</li>
+          <li>Compte-rendu WhatsApp</li>
+        </ul>
+        <button class="btn btn-outline btn-sm" style="width:100%" onclick="openBooking('Antoine R.','32','avatar-6','AR')">Choisir Essentiel</button>
+      </div>
+
+      <div class="sub-card featured fade-in-up">
+        <span class="sub-badge">⭐ LE PLUS CHOISI</span>
+        <div style="font-size:2rem;margin-bottom:10px">🌿</div>
+        <h3 style="font-size:1.05rem;font-weight:800">Confort</h3>
+        <p style="font-size:.78rem;color:var(--text-muted);margin-top:3px">Jardinier professionnel</p>
+        <div class="sub-price">117€<span>/mois</span></div>
+        <p style="font-size:.75rem;color:var(--green-dark);font-weight:600;margin-bottom:8px;text-align:left;padding-left:16px">✅ Matériel pro fourni</p>
+        <ul class="sub-features">
+          <li>Tonte ×2 par mois</li>
+          <li>Taille de haies mensuelle</li>
+          <li>Surface jusqu'à 300 m²</li>
+          <li>Photos avant/après</li>
+          <li>Priorité créneaux week-end</li>
+        </ul>
+        <button class="btn btn-primary btn-sm" style="width:100%" onclick="openBooking('Thomas M.','39','avatar-1','TM')">Choisir Confort</button>
+      </div>
+
+      <div class="sub-card fade-in-up">
+        <div style="font-size:2rem;margin-bottom:10px">🌿</div>
+        <h3 style="font-size:1.05rem;font-weight:800">Premium</h3>
+        <p style="font-size:.78rem;color:var(--text-muted);margin-top:3px">Expert paysagiste attitré</p>
+        <div class="sub-price" style="font-size:1.5rem">Sur devis</div>
+        <p style="font-size:.75rem;color:var(--green-dark);font-weight:600;margin-bottom:8px;text-align:left;padding-left:16px">✅ Matériel certifié fourni</p>
+        <ul class="sub-features">
+          <li>Entretien complet personnalisé</li>
+          <li>Grande surface (300 m²+)</li>
+          <li>Copropriétés &amp; entreprises</li>
+          <li>Jardinier attitré fixe</li>
+          <li>Rapport mensuel détaillé</li>
+        </ul>
+        <button class="btn btn-green btn-sm" style="width:100%" onclick="openWhatsAppDirect(event)">Demander un devis</button>
+      </div>
+
+    </div>
+    <p style="text-align:center;margin-top:24px;font-size:.8rem;color:var(--text-muted)">Sans engagement · Résiliable à tout moment · Facturation mensuelle</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <h2 class="section-title">Questions fréquentes</h2>
+    <p class="section-subtitle">Tout ce que vous devez savoir avant de réserver.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Combien coûte une prestation ?</div>
+        <div class="faq-a"><p>Les tarifs vont de 32 à 39&euro;/h selon le profil du jardinier (Nouveau, Confirmé ou Expert vert). Le prix est affiché avant la réservation, sans surprise. Vous payez uniquement les heures effectuées.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Les jardiniers sont-ils vérifiés ?</div>
+        <div class="faq-a"><p>Oui. Chaque jardinier passe par un processus de vérification d'identité. Les professionnels fournissent également leur Kbis et assurance RC Pro.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Que se passe-t-il si je ne suis pas satisfait ?</div>
+        <div class="faq-a"><p>Contactez notre support dans les 48h suivant la prestation. Nous examinons les photos avant/après et les échanges pour trouver une solution équitable.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Faut-il fournir le matériel ?</div>
+        <div class="faq-a"><p><strong>Pour un jardinier Pro</strong> : non, il apporte tout (tondeuse, taille-haies, souffleur, débroussailleuse). <strong>Pour un étudiant</strong> : oui, entièrement. Les étudiants n'ont aucun outil — vous devez disposer de tout le matériel nécessaire à la prestation. C'est indiqué clairement sur leur profil et confirmé à la réservation. En contrepartie, leur tarif est de 32 à 35€/h.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Puis-je réserver le même jardinier régulièrement ?</div>
+        <div class="faq-a"><p>Absolument ! Vous pouvez mettre un jardinier en favori et programmer des prestations récurrentes (hebdomadaires, bimensuelles ou mensuelles).</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Quelle zone couvrez-vous ?</div>
+        <div class="faq-a"><p>PILOGREEN est disponible à Lyon et dans les communes environnantes (Villeurbanne, Écully, Caluire, Bron, Vénissieux, Oullins, etc.). La zone s'étend progressivement.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Comment annuler une réservation ?</div>
+        <div class="faq-a"><p>Annulation gratuite jusqu'à 48h avant la prestation, sans frais. Entre 24h et 48h avant, des frais de 15€ s'appliquent. En dessous de 24h, la prestation est due. Contactez-nous par WhatsApp ou email pour toute annulation.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Le paiement est-il sécurisé ?</div>
+        <div class="faq-a"><p>Oui. Les paiements en ligne sont traités via Stripe, leader mondial du paiement sécurisé (certifié PCI-DSS niveau 1). Vos coordonnées bancaires ne sont jamais stockées sur nos serveurs. Vous pouvez aussi payer sur place après la prestation.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Mes données personnelles sont-elles protégées ?</div>
+        <div class="faq-a"><p>PILOGREEN respecte le RGPD. Vos données (nom, adresse, téléphone) sont utilisées uniquement pour gérer votre réservation et ne sont jamais revendues. Vous pouvez demander leur suppression à tout moment en nous contactant. Consultez notre <a href="#" onclick="openLegal('rgpd');return false;">Politique de confidentialité</a>.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Les jardiniers apportent-ils leur matériel ?</div>
+        <div class="faq-a"><p>Les <strong>Pros</strong> (badge vert) : oui, matériel professionnel complet fourni. Les <strong>étudiants</strong> (badge jaune) : non — ils n'ont <em>aucun</em> matériel et vous devez tout fournir (tondeuse, taille-haies, débroussailleuse, sacs…). En contrepartie, leur tarif est inférieur de 4 à 7€/h. Vous confirmez avoir le matériel lors de la réservation.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <h2>Votre jardin mérite le meilleur</h2>
+  <p>Rejoignez les propriétaires lyonnais qui ont déjà adopté PILOGREEN pour l'entretien de leur jardin.</p>
+  <div class="cta-buttons">
+    <a href="#jardiniers" class="btn btn-lg" style="background:#fff;color:var(--green-dark);font-weight:700;box-shadow:0 4px 20px rgba(0,0,0,.2)" onmouseover="this.style.background='#f0fbea'" onmouseout="this.style.background='#fff'">🌿 Trouver un jardinier</a>
+    <a href="https://wa.me/33XXXXXXXXX" class="btn btn-lg" style="background:var(--orange);color:#fff;box-shadow:0 4px 20px rgba(255,107,44,.4)" onclick="openWhatsAppDirect(event)" onmouseover="this.style.background='var(--orange-hover)'" onmouseout="this.style.background='var(--orange)'">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      💬 Contacter par WhatsApp
+    </a>
+  </div>
+  <p style="margin-top:28px;font-size:.78rem;opacity:.6;position:relative">Sans engagement · Réponse sous 2h · Dès 32€/h</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <div class="footer-logo-svg">
+          <div class="footer-logo-icon">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12M12 12C12 7 7 3 3 5c0 5 4 9 9 7M12 12c0-5 5-9 9-7-1 5-5 9-9 7"/></svg>
+          </div>
+          <div class="logo-text">PILO<span>GREEN</span></div>
+        </div>
+        <p style="font-size:.84rem;color:#777;line-height:1.6;max-width:240px">À vous les jardins. Le reste, c'est nous.<br>Jardiniers vérifiés à Lyon et alentours.</p>
+        <p style="font-size:.76rem;color:#555;margin-top:14px;display:flex;align-items:center;gap:5px">🌿 Lyon &amp; Grand Lyon · Dès 32€/h</p>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Tonte de pelouse</a></li>
+        <li><a href="#services">Taille de haies</a></li>
+        <li><a href="#services">Désherbage</a></li>
+        <li><a href="#services">Débroussaillage</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+33XXXXXXXXX">07 XX XX XX XX</a></li>
+        <li><a href="mailto:contact@pilogreen.fr">contact@pilogreen.fr</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 PILOGREEN. Tous droits réservés. Lyon, France. &mdash;
+    <a href="#" onclick="openLegal('mentions');return false;" style="color:#888">Mentions légales</a> &middot;
+    <a href="#" onclick="openLegal('cgv');return false;" style="color:#888">CGV</a> &middot;
+    <a href="#" onclick="openLegal('rgpd');return false;" style="color:#888">Confidentialité</a>
+  </div>
+</footer>
+
+<!-- FLOATING CTA MOBILE -->
+<div class="floating-cta" id="floatingCta">
+  <a href="#" class="btn btn-whatsapp" onclick="openWhatsAppDirect(event)">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp
+  </a>
+  <a href="#jardiniers" class="btn btn-primary">Réserver un jardinier</a>
+</div>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>Réserver une prestation</h2>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-gardener" id="modalGardener">
+        <div class="avatar avatar-1" id="modalAvatar">TM</div>
+        <div>
+          <div style="font-weight:700" id="modalName">Thomas M.</div>
+          <div style="font-size:.85rem;color:var(--text-muted)" id="modalPrice">39&euro;/h</div>
+        </div>
+      </div>
+      <div id="modalEquipWarn" style="display:none;background:#FFFBF0;border:1px solid #FFB300;border-left:4px solid #FFB300;border-radius:8px;padding:12px 14px;margin-bottom:16px">
+        <div style="font-size:.83rem;font-weight:700;color:#7c4a00;margin-bottom:6px">🧰 Ce jardinier n'a aucun matériel</div>
+        <div id="modalEquipList" style="font-size:.8rem;color:#555;margin-bottom:10px;line-height:1.6"></div>
+        <label style="display:flex;align-items:flex-start;gap:8px;cursor:pointer;font-size:.8rem;color:#333;font-weight:600">
+          <input type="checkbox" id="modalEquipConfirm" style="margin-top:2px;accent-color:var(--green);width:15px;height:15px;flex-shrink:0">
+          Je confirme disposer de tout le matériel nécessaire pour cette prestation
+        </label>
+      </div>
+      <form id="bookingForm" onsubmit="submitBooking(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Prénom *</label>
+            <input type="text" name="prenom" required placeholder="Votre prénom">
+          </div>
+          <div class="form-group">
+            <label>Nom *</label>
+            <input type="text" name="nom" required placeholder="Votre nom">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Téléphone *</label>
+          <input type="tel" name="phone" required placeholder="06 XX XX XX XX">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="votre@email.fr">
+        </div>
+        <div class="form-group">
+          <label>Adresse du jardin *</label>
+          <div class="address-autocomplete">
+            <input type="text" name="adresse" required placeholder="Adresse complète" id="modalAddress" oninput="onAddressInput(this,'modalDropdown')" onkeydown="onAddressKeydown(event,'modalDropdown')" autocomplete="off">
+            <div class="autocomplete-dropdown" id="modalDropdown"></div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Service souhaité *</label>
+            <select name="service" required id="modalService">
+              <option value="Tonte de pelouse">Tonte de pelouse</option>
+              <option value="Taille de haies">Taille de haies</option>
+              <option value="Désherbage">Désherbage</option>
+              <option value="Débroussaillage">Débroussaillage</option>
+              <option value="Plusieurs services">Plusieurs services</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Surface du jardin</label>
+            <select name="surface">
+              <option value="">Sélectionner</option>
+              <option value="< 50 m²">&lt; 50 m²</option>
+              <option value="50-100 m²">50 - 100 m²</option>
+              <option value="100-300 m²">100 - 300 m²</option>
+              <option value="300-500 m²">300 - 500 m²</option>
+              <option value="500-1000 m²">500 - 1000 m²</option>
+              <option value="> 1000 m²">&gt; 1000 m²</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Date souhaitée</label>
+          <input type="date" name="date">
+        </div>
+        <div class="form-group">
+          <label>Durée estimée *</label>
+          <div class="duration-select" id="durationSelect">
+            <button type="button" class="duration-btn" data-hours="1">1h</button>
+            <button type="button" class="duration-btn active" data-hours="2">2h</button>
+            <button type="button" class="duration-btn" data-hours="3">3h</button>
+            <button type="button" class="duration-btn" data-hours="4">4h</button>
+            <button type="button" class="duration-btn" data-hours="5">5h+</button>
+          </div>
+          <input type="hidden" name="duree" id="modalDuree" value="2">
+        </div>
+        <div class="price-calc" id="priceCalc">
+          <div class="price-row"><span>Tarif horaire</span><span class="price-val" id="calcRate">39€/h</span></div>
+          <div class="price-row"><span>Durée</span><span class="price-val" id="calcHours">2h</span></div>
+          <div class="price-row"><span>Total estimé</span><span class="price-val" id="calcTotal">78€</span></div>
+        </div>
+        <div class="form-group">
+          <label>Détails supplémentaires</label>
+          <textarea name="message" placeholder="Décrivez votre jardin, vos besoins particuliers, accès au jardin..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" style="width:100%">
+          Continuer vers le paiement
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <p style="text-align:center;font-size:.8rem;color:var(--text-muted);margin-top:12px">Paiement sécurisé par carte ou sur place.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- PAYMENT MODAL -->
+<div class="modal-overlay" id="paymentModal">
+  <div class="modal payment-modal">
+    <div class="modal-header">
+      <h2>Récapitulatif & Paiement</h2>
+      <button class="modal-close" onclick="closePayment()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="recap-section">
+        <div class="recap-title">Votre réservation</div>
+        <div class="recap-card">
+          <div class="recap-line"><span>Jardinier</span><span class="recap-val" id="recapGardener">—</span></div>
+          <div class="recap-line"><span>Service</span><span class="recap-val" id="recapService">—</span></div>
+          <div class="recap-line"><span>Adresse</span><span class="recap-val" id="recapAddress">—</span></div>
+          <div class="recap-line"><span>Date</span><span class="recap-val" id="recapDate">—</span></div>
+          <div class="recap-line"><span>Durée</span><span class="recap-val" id="recapDuration">—</span></div>
+          <div class="recap-line total"><span>Total</span><span class="recap-val" id="recapTotal">—</span></div>
+        </div>
+      </div>
+      <div class="recap-section">
+        <div class="recap-title">Mode de paiement</div>
+        <div class="payment-methods">
+          <div class="payment-method selected" id="payCard" onclick="selectPayment('card')">
+            <div class="payment-method-icon stripe">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            </div>
+            <div class="payment-method-info">
+              <h4>Payer par carte</h4>
+              <p>Paiement sécurisé via Stripe</p>
+            </div>
+          </div>
+          <div class="payment-method" id="payCash" onclick="selectPayment('cash')">
+            <div class="payment-method-icon cash">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M9 9.5c0-.8.7-1.5 1.5-1.5h3c.8 0 1.5.7 1.5 1.5S14.3 11 13.5 11h-3c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5h3c.8 0 1.5-.7 1.5-1.5"/></svg>
+            </div>
+            <div class="payment-method-info">
+              <h4>Payer sur place</h4>
+              <p>Espèces ou virement après la prestation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-lg" style="width:100%" id="payBtn" onclick="processPayment()">
+        Payer maintenant
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <div class="payment-secure">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        Paiement 100% sécurisé &bull; Données chiffrées SSL
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal">
+    <div class="success-modal">
+      <div class="check">&#9989;</div>
+      <h2 id="successTitle">Réservation confirmée !</h2>
+      <p id="successMsg">Merci ! Votre jardinier vous recontactera sous 2 heures pour confirmer le créneau et les détails de la prestation.</p>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <a href="#" class="btn btn-whatsapp btn-lg" id="successWhatsapp" style="justify-content:center">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Contacter via WhatsApp
+        </a>
+        <button class="btn btn-outline btn-lg" onclick="closeSuccess()" style="justify-content:center">Retour au site</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST SOCIAL PROOF CONTAINER -->
+<div id="toastContainer" class="toast-container"></div>
+
+<!-- EXIT INTENT POPUP -->
+<div class="exit-overlay" id="exitPopup">
+  <div class="exit-popup">
+    <button class="exit-close-btn" onclick="closeExitPopup()">×</button>
+    <div class="exit-emoji">🌿</div>
+    <h3>Avant de partir…</h3>
+    <p>Recevez un <strong>devis gratuit en 5 minutes</strong> par WhatsApp. Jardiniers disponibles dès cette semaine à Lyon — pro avec matériel ou étudiant tarif réduit.</p>
+    <button class="btn btn-primary btn-lg" style="width:100%;margin-bottom:12px" onclick="closeExitPopup();window.scrollTo({top:0,behavior:'smooth'})">
+      Voir les jardiniers disponibles
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+    <a href="#" class="btn btn-whatsapp btn-lg" style="width:100%;justify-content:center" onclick="closeExitPopup();openWhatsAppDirect(event)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Devis gratuit par WhatsApp
+    </a>
+    <p style="font-size:.73rem;color:var(--text-muted);margin-top:12px">Sans engagement · Réponse sous 5 minutes en journée</p>
+  </div>
+</div>
+
+<!-- MODAL HORS ZONE -->
+<div class="modal-overlay" id="exitZoneModal">
+  <div class="modal" style="max-width:420px">
+    <div class="modal-header">
+      <h2>🗺️ Hors zone actuellement</h2>
+      <button class="modal-close" onclick="closeExitZoneModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p style="color:var(--text-light);margin-bottom:20px">PILOGREEN s'agrandit progressivement. Laissez votre email et votre commune — vous serez notifié en priorité dès notre arrivée.</p>
+      <div class="form-group"><label>Votre commune</label><input type="text" id="exitZoneCity" placeholder="Ex: Décines, Saint-Priest…"></div>
+      <div class="form-group"><label>Votre email</label><input type="email" id="exitZoneEmail" placeholder="votre@email.fr"></div>
+      <button class="btn btn-primary" style="width:100%" onclick="submitExitZone()">Me notifier dès l'arrivée →</button>
+    </div>
+  </div>
+</div>
+
+<!-- PWA INSTALL BANNER -->
+<div class="pwa-banner" id="pwaBanner">
+  <div class="pwa-banner-text">
+    <strong>🌿 Installer PILOGREEN</strong>
+    Accès rapide depuis votre écran d'accueil
+  </div>
+  <button class="pwa-install-btn" id="pwaInstallBtn">Installer</button>
+  <button class="pwa-dismiss-btn" onclick="document.getElementById('pwaBanner').classList.remove('show')">Plus tard</button>
+</div>
+
+<!-- LEGAL MODAL -->
+<div class="modal-overlay" id="legalModal">
+  <div class="modal" style="max-width:680px">
+    <div class="modal-header">
+      <h2>Informations légales</h2>
+      <button class="modal-close" onclick="closeLegal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="legal-tabs">
+        <div class="legal-tab active" data-tab="mentions" onclick="switchLegalTab('mentions')">Mentions légales</div>
+        <div class="legal-tab" data-tab="cgv" onclick="switchLegalTab('cgv')">CGV</div>
+        <div class="legal-tab" data-tab="rgpd" onclick="switchLegalTab('rgpd')">Confidentialité</div>
+      </div>
+      <div class="legal-content active" id="legal-mentions">
+        <h4>Éditeur du site</h4>
+        <p>PILOGREEN — Service d'entretien de jardins à Lyon et alentours.<br>Entreprise individuelle immatriculée en France.<br>Contact : <a href="mailto:contact@pilogreen.fr">contact@pilogreen.fr</a></p>
+        <h4>Hébergement</h4>
+        <p>Ce site est hébergé par Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis.</p>
+        <h4>Propriété intellectuelle</h4>
+        <p>L'ensemble du contenu de ce site (textes, images, logo) est protégé par le droit d'auteur. Toute reproduction sans autorisation est interdite.</p>
+        <h4>Responsabilité</h4>
+        <p>PILOGREEN s'efforce d'assurer l'exactitude des informations publiées sur ce site. En cas d'erreur, contactez-nous pour correction.</p>
+      </div>
+      <div class="legal-content" id="legal-cgv">
+        <h4>Objet</h4>
+        <p>Les présentes CGV régissent les prestations de jardinage réservées via la plateforme PILOGREEN entre le client et le prestataire.</p>
+        <h4>Prix et paiement</h4>
+        <p>Les tarifs sont affichés en euros TTC. Le paiement peut s'effectuer en ligne via Stripe (carte bancaire) ou sur place après la prestation.</p>
+        <h4>Annulation</h4>
+        <p>Annulation gratuite jusqu'à 48h avant la prestation. Entre 24h et 48h : frais de 15€. Moins de 24h : prestation due intégralement.</p>
+        <h4>Garantie satisfaction</h4>
+        <p>En cas d'insatisfaction, contactez-nous dans les 48h suivant la prestation. Une intervention corrective gratuite sera proposée si la réclamation est fondée.</p>
+        <h4>Assurance</h4>
+        <p>Les prestations sont couvertes par une assurance Responsabilité Civile Professionnelle. Les dommages causés par négligence du jardinier sont pris en charge.</p>
+        <h4>Litiges</h4>
+        <p>En cas de litige, une solution amiable sera privilégiée. À défaut, les tribunaux compétents de Lyon seront saisis.</p>
+      </div>
+      <div class="legal-content" id="legal-rgpd">
+        <h4>Données collectées</h4>
+        <p>Lors d'une réservation, nous collectons : nom, prénom, téléphone, email, adresse du jardin. Ces données servent uniquement à gérer votre prestation.</p>
+        <h4>Finalité du traitement</h4>
+        <p>Vos données sont utilisées pour : confirmer votre réservation, contacter votre jardinier, gérer le paiement et vous envoyer une confirmation de prestation.</p>
+        <h4>Conservation</h4>
+        <p>Vos données sont conservées 3 ans après votre dernière prestation, conformément aux obligations comptables et légales.</p>
+        <h4>Vos droits</h4>
+        <p>Vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données. Envoyez votre demande à <a href="mailto:contact@pilogreen.fr">contact@pilogreen.fr</a>.</p>
+        <h4>Cookies</h4>
+        <p>Ce site n'utilise pas de cookies de tracking publicitaire. Seuls des cookies techniques essentiels au fonctionnement du site peuvent être présents.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN PANEL (accessible via ?admin=PILOGREEN2024) -->
+<div id="adminPanel">
+  <div class="admin-header">
+    <h3>🌿 PILOGREEN Admin</h3>
+    <div class="admin-header-btns">
+      <button class="admin-close-btn" onclick="exportAdminHTML()">⬇ Export HTML</button>
+      <button class="admin-close-btn" onclick="adminLogout()">Déconnexion</button>
+    </div>
+  </div>
+  <div class="admin-tabs">
+    <div class="admin-tab active" data-tab="gardeners" onclick="switchAdminTab('gardeners')">🌿 Jardiniers</div>
+    <div class="admin-tab" data-tab="reviews" onclick="switchAdminTab('reviews')">⭐ Avis</div>
+    <div class="admin-tab" data-tab="config" onclick="switchAdminTab('config')">⚙️ Config</div>
+  </div>
+  <div class="admin-body">
+    <!-- JARDINIERS TAB -->
+    <div class="admin-section active" id="admin-gardeners">
+      <div class="admin-section-title">Profils jardiniers</div>
+      <div id="adminGardenerList"></div>
+      <button class="admin-save-btn" onclick="saveAdminData()">💾 Sauvegarder et appliquer</button>
+    </div>
+    <!-- AVIS TAB -->
+    <div class="admin-section" id="admin-reviews">
+      <div class="admin-section-title">Avis clients</div>
+      <div id="adminReviewList"></div>
+      <button class="admin-save-btn" onclick="saveAdminData()">💾 Sauvegarder et appliquer</button>
+    </div>
+    <!-- CONFIG TAB -->
+    <div class="admin-section" id="admin-config">
+      <div class="admin-section-title">Contact & Paiement</div>
+      <div class="admin-form-row"><label>Numéro WhatsApp (sans +)</label><input id="adminWhatsapp" placeholder="33612345678"></div>
+      <div class="admin-form-row"><label>Email contact</label><input id="adminEmail" type="email"></div>
+      <div class="admin-form-row"><label>Téléphone affiché</label><input id="adminPhone" placeholder="07 XX XX XX XX"></div>
+      <div class="admin-form-row"><label>Stripe Payment Link</label><input id="adminStripe" placeholder="https://buy.stripe.com/..."></div>
+      <div class="admin-section-title" style="margin-top:20px">Compteurs social proof</div>
+      <div class="admin-form-row"><label>Jardins entretenus</label><input type="number" id="adminGardens"></div>
+      <div class="admin-form-row"><label>Note moyenne (ex: 4.8)</label><input id="adminRating"></div>
+      <div class="admin-form-row"><label>Nombre d'avis</label><input type="number" id="adminReviewCount"></div>
+      <button class="admin-save-btn" onclick="saveAdminData()">💾 Sauvegarder et appliquer</button>
+      <button class="admin-reset-btn" onclick="resetAdminData()">🔄 Réinitialiser les données par défaut</button>
+    </div>
+  </div>
+</div>
+<div id="adminToast"></div>
+<button class="admin-toggle-btn" id="adminToggleBtn" onclick="toggleAdminPanel()">ADMIN</button>
+
+<script>
+// ===== SITE DATA (éditable via panneau admin ?admin=PILOGREEN2024) =====
+const SITE_DATA_DEFAULT = {
+  contact: {
+    whatsapp: '33XXXXXXXXX',
+    email: 'contact@pilogreen.fr',
+    phone: '07 XX XX XX XX',
+    stripe: 'STRIPE_PAYMENT_LINK_ICI'
+  },
+  stats: { gardensCount: 127, rating: '4.8', reviewCount: 47, since: 'mars 2024' },
+  gardeners: [
+    { id:1,  name:'Thomas M.',   initials:'TM', avatarClass:'avatar-1',  badge:'Expert vert',         badgeClass:'badge-gold',  rating:4.9, reviews:47, price:39, desc:"Paysagiste professionnel depuis 8 ans. Méticuleux et ponctuel, je prends soin de votre jardin comme du mien.",           tags:'Tonte,Taille,Désherbage',          availability:'Dispo cette semaine', slots:3, type:'pro',      hasEquipment:true,  equipmentNote:'Tondeuse pro, taille-haies, souffleur fournis',              homeLat:45.769, homeLng:4.852, maxKm:6 },
+    { id:2,  name:'Karim B.',    initials:'KB', avatarClass:'avatar-2',  badge:'Pro confirmé',         badgeClass:'badge-green', rating:4.8, reviews:32, price:35, desc:"Disponible et réactif. Spécialisé dans la tonte et le débroussaillage, je m'adapte à tous types de terrains.",          tags:'Tonte,Désherbage,Débroussaillage', availability:'Dispo cette semaine', slots:2, type:'pro',      hasEquipment:true,  equipmentNote:'Tondeuse, débroussailleuse professionnelle fournie',         homeLat:45.767, homeLng:4.884, maxKm:6 },
+    { id:3,  name:'Marc L.',     initials:'ML', avatarClass:'avatar-3',  badge:'Expert vert',         badgeClass:'badge-gold',  rating:5.0, reviews:28, price:39, desc:"Paysagiste certifié. Spécialiste de la taille et de l'entretien soigné des espaces verts. Travail impeccable garanti.",   tags:'Taille,Désherbage,Tonte',          availability:'Dispo demain',         slots:1, type:'pro',      hasEquipment:true,  equipmentNote:'Matériel professionnel complet fourni',                     homeLat:45.749, homeLng:4.839, maxKm:6 },
+    { id:4,  name:'Lucas D.',    initials:'LD', avatarClass:'avatar-4',  badge:'Étudiant paysagisme', badgeClass:'badge-new',   rating:4.7, reviews:15, price:35, desc:"Étudiant en BTS paysagisme, sérieux et motivé. Travail soigné garanti, tarif accessible. Vous apportez le matériel.",   tags:'Tonte,Débroussaillage',            availability:'Dispo cette semaine', slots:4, type:'etudiant', hasEquipment:false, equipmentNote:'Tondeuse + débroussailleuse + sacs à végétaux',          homeLat:45.744, homeLng:4.830, maxKm:5 },
+    { id:5,  name:'Franck Z.',   initials:'FZ', avatarClass:'avatar-5',  badge:'Expert vert',         badgeClass:'badge-gold',  rating:4.9, reviews:41, price:39, desc:"Paysagiste certifié avec 6 ans d'expérience. Je transforme vos espaces verts avec soin et rigueur, à chaque prestation.",  tags:'Tonte,Taille,Désherbage',          availability:'Dispo demain',         slots:2, type:'pro',      hasEquipment:true,  equipmentNote:'Matériel certifié professionnel fourni',                    homeLat:45.795, homeLng:4.851, maxKm:7 },
+    { id:6,  name:'Antoine R.',  initials:'AR', avatarClass:'avatar-6',  badge:'Étudiant motivé',     badgeClass:'badge-new',   rating:4.6, reviews:8,  price:32, desc:"Étudiant en jardinage depuis 2 ans sur la plateforme. Fiable, ponctuel, tarif imbattable. Vous apportez le matériel.",    tags:'Tonte,Débroussaillage,Désherbage', availability:'Dispo cette semaine', slots:5, type:'etudiant', hasEquipment:false, equipmentNote:'Tondeuse + débroussailleuse + outils de désherbage + sacs',          homeLat:45.780, homeLng:4.875, maxKm:5 },
+    { id:7,  name:'Nicolas P.',  initials:'NP', avatarClass:'avatar-7',  badge:'Pro confirmé',         badgeClass:'badge-green', rating:4.8, reviews:23, price:37, desc:"Jardinier indépendant depuis 5 ans. Tonte impeccable, taille soignée, je m'adapte à chaque jardin avec efficacité.",     tags:'Tonte,Taille,Désherbage',          availability:'Dispo cette semaine', slots:3, type:'pro',      hasEquipment:true,  equipmentNote:'Tondeuse, taille-haies, souffleur fournis',                  homeLat:45.773, homeLng:4.800, maxKm:6 },
+    { id:8,  name:'Clément D.',  initials:'CD', avatarClass:'avatar-8',  badge:'Expert vert',         badgeClass:'badge-gold',  rating:4.9, reviews:36, price:38, desc:"Paysagiste diplômé passionné par les jardins de toutes tailles. Sérieux, ponctuel, matériel professionnel fourni.",     tags:'Taille,Tonte,Désherbage',          availability:'Dispo cette semaine', slots:2, type:'pro',      hasEquipment:true,  equipmentNote:'Matériel professionnel complet fourni',                     homeLat:45.753, homeLng:4.778, maxKm:7 },
+    { id:9,  name:'Romain V.',   initials:'RV', avatarClass:'avatar-9',  badge:'Pro confirmé',         badgeClass:'badge-green', rating:4.7, reviews:19, price:36, desc:"Professionnel de l'entretien d'espaces verts depuis 6 ans. Rapide, efficace et méthodique sur tous types de terrains.", tags:'Tonte,Débroussaillage,Désherbage', availability:'Dispo cette semaine', slots:4, type:'pro',      hasEquipment:true,  equipmentNote:'Tondeuse pro, débroussailleuse, taille-haies fournis',      homeLat:45.736, homeLng:4.915, maxKm:7 },
+    { id:10, name:'Alexis M.',   initials:'AM', avatarClass:'avatar-10', badge:'Étudiant motivé',      badgeClass:'badge-new',   rating:4.7, reviews:11, price:32, desc:"Étudiant en biologie végétale, je propose mes services d'entretien les week-ends. Minutieux et fiable. Vous apportez le matériel.", tags:'Tonte,Désherbage',                 availability:'Dispo ce week-end',   slots:3, type:'etudiant', hasEquipment:false, equipmentNote:'Tondeuse + outils de désherbage + sacs à végétaux',          homeLat:45.727, homeLng:4.875, maxKm:5 },
+    { id:11, name:'Julien T.',   initials:'JT', avatarClass:'avatar-11', badge:'Pro confirmé',         badgeClass:'badge-green', rating:4.8, reviews:29, price:36, desc:"Paysagiste confirmé. Je prends en charge tonte, taille et désherbage avec mon propre matériel, du lundi au samedi.",    tags:'Tonte,Taille,Désherbage',          availability:'Dispo demain',         slots:2, type:'pro',      hasEquipment:true,  equipmentNote:'Tondeuse, taille-haies, débroussailleuse fournis',           homeLat:45.698, homeLng:4.888, maxKm:7 },
+    { id:12, name:'Nathan H.',   initials:'NH', avatarClass:'avatar-12', badge:'Expert vert',         badgeClass:'badge-gold',  rating:4.9, reviews:33, price:38, desc:"Jardinier professionnel certifié. Spécialisé dans la taille en forme et l'entretien régulier. Résultat soigné garanti.",    tags:'Taille,Tonte,Désherbage',          availability:'Dispo cette semaine', slots:1, type:'pro',      hasEquipment:true,  equipmentNote:'Matériel certifié professionnel fourni',                    homeLat:45.715, homeLng:4.805, maxKm:6 },
+    { id:13, name:'Baptiste G.', initials:'BG', avatarClass:'avatar-13', badge:'Pro confirmé',         badgeClass:'badge-green', rating:4.8, reviews:21, price:37, desc:"Jardinier depuis 7 ans, rigoureux et passionné. Prise en charge complète de votre espace vert avec matériel professionnel.",tags:'Tonte,Taille,Désherbage',          availability:'Dispo cette semaine', slots:3, type:'pro',      hasEquipment:true,  equipmentNote:'Tondeuse pro, taille-haies, souffleur fournis',              homeLat:45.820, homeLng:4.895, maxKm:7 },
+    { id:14, name:'Léo B.',      initials:'LB', avatarClass:'avatar-14', badge:'Étudiant paysagisme',  badgeClass:'badge-new',   rating:4.8, reviews:14, price:33, desc:"Étudiant en BTS aménagements paysagers. Dynamique et appliqué, je complète ma formation avec des missions terrain.",        tags:'Tonte,Désherbage,Débroussaillage', availability:'Dispo ce week-end',   slots:4, type:'etudiant', hasEquipment:false, equipmentNote:'Tondeuse + taille-haies + débroussailleuse + sacs',      homeLat:45.781, homeLng:4.831, maxKm:5 },
+    { id:15, name:'Sébastien A.', initials:'SA', avatarClass:'avatar-15', badge:'Expert vert',        badgeClass:'badge-gold',  rating:4.9, reviews:38, price:36, desc:"Artisan paysagiste depuis 9 ans. Spécialiste des jardins familiaux, je m'adapte à chaque terrain et chaque configuration.", tags:'Tonte,Taille,Désherbage',          availability:'Dispo demain',         slots:2, type:'pro',      hasEquipment:true,  equipmentNote:'Matériel pro complet fourni (tondeuse, taille-haies, souffleur)', homeLat:45.697, homeLng:4.943, maxKm:6 }
+  ],
+  reviews: [
+    { id:1, stars:5, text:"Super service ! J'ai réservé en 2 minutes, le jardinier était ponctuel et mon jardin n'a jamais été aussi beau. Je recommande les yeux fermés.", name:'Sophie B.', initials:'SB', location:'Lyon 3e', date:'Mai 2026', service:'Tonte de pelouse', avatarColor:'#4EA81B' },
+    { id:2, stars:5, text:"Enfin une solution simple pour faire entretenir mon jardin. Les photos avant/après m'ont rassuré. Prestation impeccable.", name:'Jean-Marc P.', initials:'JM', location:'Villeurbanne', date:'Avril 2026', service:'Taille de haies', avatarColor:'#1565C0' },
+    { id:3, stars:4, text:"J'ai pris un abonnement mensuel pour la tonte. Très bonne expérience globale, petit retard la première fois mais depuis c'est nickel !", name:'Catherine L.', initials:'CL', location:'Écully', date:'Mars 2026', service:'Tonte mensuelle', avatarColor:'#C62828' },
+    { id:4, stars:5, text:"J'avais peur de faire venir quelqu'un que je ne connaissais pas. Mais le profil vérifié et les photos avant/après m'ont rassuré. Le résultat est bluffant, haies parfaitement taillées.", name:'Didier M.', initials:'DM', location:'Caluire-et-Cuire', date:'Mai 2026', service:'Taille de haies', avatarColor:'#6A1B9A' },
+    { id:5, stars:5, text:"Réservé un étudiant car j'avais ma propre tondeuse. Rapport qualité/prix imbattable — 32€/h et un travail soigné. Mon jardin de 120m² était nickel en 2h.", name:'Amélie R.', initials:'AR', location:'Lyon 7e', date:'Avril 2026', service:'Tonte — Formule Étudiant', avatarColor:'#E65100' },
+    { id:6, stars:5, text:"Thomas M. est venu deux fois. Ponctuel, pro, et il apporte tout son matériel. Je l'ai mis en favori et je recommande sans hésitation.", name:'Michel T.', initials:'MT', location:'Tassin-la-Demi-Lune', date:'Mars 2026', service:'Entretien complet — Pro', avatarColor:'#00695C' },
+    { id:7, stars:5, text:"Mon jardin était une jungle. En 3h, Julien T. a tout remis en ordre. Tondeuse, taille-haies, il avait tout le matériel. Résultat bluffant, je recommande.", name:'Patrice G.', initials:'PG', location:'Vénissieux', date:'Juin 2026', service:'Remise en état complète', avatarColor:'#0277BD' },
+    { id:8, stars:4, text:"Bonne expérience avec l'abonnement mensuel. Le jardin est bien entretenu. J'aurais aimé un peu plus de communication proactive mais le résultat est là.", name:'Alain M.', initials:'AM', location:'Oullins', date:'Mai 2026', service:'Abonnement Confort mensuel', avatarColor:'#558B2F' }
+  ]
+};
+
+// Load saved data from localStorage
+let _saved = null;
+try { _saved = JSON.parse(localStorage.getItem('pilogreen_data')); } catch(e) {}
+const SITE_DATA = _saved || JSON.parse(JSON.stringify(SITE_DATA_DEFAULT));
+
+let WHATSAPP_NUMBER = SITE_DATA.contact.whatsapp;
+let CONTACT_EMAIL = SITE_DATA.contact.email;
+let STRIPE_PAYMENT_LINK = SITE_DATA.contact.stripe;
+
+// ===== GEO HELPERS =====
+function geoDistance(lat1, lon1, lat2, lon2) {
+  const R = 6371;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dLat/2)*Math.sin(dLat/2) +
+    Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*
+    Math.sin(dLon/2)*Math.sin(dLon/2);
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+}
+function kmToMinutes(km) { return Math.round(km / 28 * 60); } // ~28 km/h vitesse urbaine Lyon
+
+function filterGardenersByLocation(userLat, userLng, cityLabel) {
+  window._userLat = userLat;
+  window._userLng = userLng;
+  if (cityLabel) window._lastCityLabel = cityLabel;
+  const typeFilter = window._gardenerFilter || 'all';
+  const withDist = SITE_DATA.gardeners
+    .map(g => ({ ...g, _dist: (g.homeLat && g.homeLng) ? geoDistance(userLat, userLng, g.homeLat, g.homeLng) : 999 }))
+    .filter(g => g._dist <= (g.maxKm || 7))
+    .filter(g => typeFilter === 'all' || g.type === typeFilter);
+  withDist.sort((a, b) => a._dist - b._dist);
+  let shown = withDist.slice(0, 6);
+  // Si filtre "all": garantir ≥1 étudiant dans le mix
+  if (typeFilter === 'all') {
+    const hasStudent = shown.some(g => g.type === 'etudiant');
+    if (!hasStudent) {
+      const firstStudent = withDist.find(g => g.type === 'etudiant' && !shown.includes(g));
+      if (firstStudent) { shown.pop(); shown.push(firstStudent); }
+    }
+  }
+  renderGardeners(shown, userLat, userLng);
+  updateLocationBanner(shown.length, cityLabel);
+  updateFilterCounts(shown);
+}
+
+function resetLocationFilter() {
+  window._userLat = null;
+  window._userLng = null;
+  window._lastCityLabel = null;
+  renderGardeners(null, null, null);
+  updateFilterCounts(null);
+  const banner = document.getElementById('locationBanner');
+  if (banner) banner.style.display = 'none';
+}
+
+function updateLocationBanner(count, cityLabel) {
+  const banner = document.getElementById('locationBanner');
+  if (!banner) return;
+  const city = cityLabel || 'votre adresse';
+  const countStr = count > 0 ? `<strong>${count} jardinier${count > 1 ? 's' : ''} disponible${count > 1 ? 's' : ''}</strong>` : '<strong>Aucun jardinier</strong>';
+  banner.innerHTML = `<div class="location-banner">
+    <span>📍 ${countStr} près de <strong>${city}</strong></span>
+    <button type="button" onclick="resetLocationFilter();document.getElementById('heroAddress').value=''">Voir tous les profils ×</button>
+  </div>`;
+  banner.style.display = 'block';
+}
+
+// ===== RENDER GARDENERS =====
+function renderGardeners(gardenersArr, userLat, userLng) {
+  const gList = gardenersArr || SITE_DATA.gardeners;
+  const grid = document.getElementById('gardenersGrid');
+  if (!grid) return;
+  const clk = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>`;
+  grid.innerHTML = gList.map(g => {
+    const tags = (g.tags||'').split(',').map(t=>`<span class="tag">${t.trim()}</span>`).join('');
+    const stars = '&#9733;'.repeat(Math.round(g.rating));
+    const slots = g.slots > 0 ? ` &middot; <strong style="color:var(--orange)">${g.slots} créneau${g.slots>1?'x':''} ce week-end</strong>` : '';
+    const equipBadge = g.hasEquipment
+      ? `<span class="equip-badge has">🔧 Matériel fourni</span>`
+      : `<span class="equip-badge no">🧰 Aucun matériel fourni</span>`;
+    const priceDiff = g.type === 'etudiant' ? (39 - g.price) : 0;
+    const equipNote = !g.hasEquipment
+      ? `<div class="equip-note-box">
+          <div class="eq-value">💡 Vous avez le matériel → économisez ${priceDiff > 0 ? priceDiff + '€/h' : 'sur le tarif'} vs un Pro</div>
+          <div class="eq-req">🧰 À prévoir : <strong>${g.equipmentNote}</strong> — aucun outil fourni par le jardinier</div>
+        </div>`
+      : '';
+    const hidden = (window._gardenerFilter && window._gardenerFilter !== 'all' && g.type !== window._gardenerFilter) ? 'hidden-by-filter' : '';
+    // Badge urgence créneau
+    const urgenceBadge = g.slots === 1 ? `<span style="display:inline-block;background:#FFF3CD;color:#856404;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:8px;margin-top:3px">⚡ Dernier créneau</span>` : '';
+    // Distance badge si adresse renseignée
+    const distBadge = (userLat != null && g.homeLat) ? (() => {
+      const d = geoDistance(userLat, userLng, g.homeLat, g.homeLng);
+      const mins = kmToMinutes(d);
+      return `<span class="distance-badge">📍 ~${mins} min de chez vous</span>`;
+    })() : '';
+    const escapedName = g.name.replace(/'/g,"&#39;");
+    const escapedNote = g.equipmentNote.replace(/'/g,"&#39;");
+    return `<div class="gardener-card fade-in-up ${hidden}" data-type="${g.type}" onclick="openBooking('${escapedName}','${g.price}','${g.avatarClass}','${g.initials}','${g.hasEquipment}','${escapedNote}')">
+      <div class="gardener-header">
+        <div class="avatar ${g.avatarClass}">${g.initials}</div>
+        <div class="gardener-info">
+          <h3>${g.name}</h3>
+          <span class="badge ${g.badgeClass}">${g.badge}</span>
+          ${equipBadge}
+          ${urgenceBadge}
+          ${distBadge}
+          <div class="rating"><span class="stars">${stars}</span> ${g.rating} (${g.reviews} avis)</div>
+        </div>
+      </div>
+      <div class="gardener-price">${g.price}&euro;<span>/h</span></div>
+      <p class="gardener-desc">${g.desc}</p>
+      ${equipNote}
+      <div class="gardener-tags">${tags}</div>
+      <div class="gardener-footer">
+        <div class="gardener-meta">${clk} ${g.availability}${slots}</div>
+        <button class="gardener-reserve-btn" onclick="event.stopPropagation();openBooking('${escapedName}','${g.price}','${g.avatarClass}','${g.initials}','${g.hasEquipment}','${escapedNote}')">Réserver →</button>
+      </div>
+    </div>`;
+  }).join('');
+  // Re-apply scroll animations after render (cartes déjà visibles → immédiatement)
+  document.querySelectorAll('.gardener-card.fade-in-up').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      el.classList.add('visible');
+    } else if (window._scrollObserver) {
+      window._scrollObserver.observe(el);
+    }
+  });
+}
+
+// ===== RENDER REVIEWS =====
+function renderReviews() {
+  const grid = document.getElementById('reviewsGrid');
+  if (!grid) return;
+  grid.innerHTML = SITE_DATA.reviews.map(r => {
+    const starsHtml = '&#9733;'.repeat(r.stars) + (r.stars < 5 ? '<span style="color:#ddd">&#9733;</span>'.repeat(5 - r.stars) : '');
+    return `
+    <div class="review-card">
+      <div class="review-stars">${starsHtml}</div>
+      <p class="review-text">"${r.text}"</p>
+      <div class="review-service-tag">&#10003; ${r.service}</div>
+      <div class="review-author">
+        <div class="review-avatar">${r.initials}</div>
+        <div><div class="review-name">${r.name}</div><div class="review-loc">${r.location} &middot; ${r.date}</div></div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ===== RENDER STATS =====
+function renderStats() {
+  const s = document.getElementById('statGardens');
+  const r = document.getElementById('statRating');
+  if (s) s.textContent = SITE_DATA.stats.gardensCount + '+';
+  if (r) r.textContent = SITE_DATA.stats.rating + '/5';
+}
+
+// Init dynamic content immediately
+renderGardeners();
+renderReviews();
+renderStats();
+updateFilterCounts(null);
+
+// ===== HEADER SCROLL =====
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+  const cta = document.getElementById('floatingCta');
+  if (cta) cta.style.display = window.scrollY > 600 ? 'flex' : 'none';
+});
+
+// ===== SERVICE PILLS =====
+let selectedService = 'Tonte de pelouse';
+document.querySelectorAll('.service-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    document.querySelectorAll('.service-pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    selectedService = pill.dataset.service;
+  });
+});
+
+// ===== SCROLL TO GARDENERS (kept for internal use) =====
+function scrollToGardeners() {
+  document.getElementById('jardiniers').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ===== HERO CTA → BOOKING DIRECT =====
+function heroReserver() {
+  const field = document.getElementById('heroAddress');
+  const address = field.value.trim();
+
+  if (!address) {
+    // Shake + highlight the address field
+    field.classList.add('input-invalid', 'input-shake');
+    document.getElementById('heroAddressError').style.display = 'block';
+    field.focus();
+    setTimeout(() => field.classList.remove('input-shake'), 400);
+    return;
+  }
+
+  // Searching animation on button
+  const btn = document.getElementById('heroCta');
+  const orig = btn.innerHTML;
+  btn.innerHTML = '<span class="spinner"></span> Recherche en cours...';
+  btn.disabled = true;
+
+  // Short delay then open booking modal with best gardener
+  setTimeout(() => {
+    btn.innerHTML = orig;
+    btn.disabled = false;
+    openBooking('Thomas M.', '39', 'avatar-1', 'TM');
+  }, 900);
+}
+
+function clearAddressError() {
+  const field = document.getElementById('heroAddress');
+  field.classList.remove('input-invalid');
+  document.getElementById('heroAddressError').style.display = 'none';
+}
+
+// ===== HEADER CTA =====
+function headerReserver() {
+  const address = document.getElementById('heroAddress').value.trim();
+  if (!address) {
+    // Scroll to hero, focus address input
+    document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      document.getElementById('heroAddress').focus();
+      document.getElementById('heroAddress').classList.add('input-invalid');
+      document.getElementById('heroAddressError').style.display = 'block';
+    }, 600);
+    return;
+  }
+  heroReserver();
+}
+
+// ===== SERVICE CARDS =====
+function selectServiceAndScroll(service) {
+  selectedService = service;
+  document.querySelectorAll('.service-pill').forEach(p => {
+    p.classList.toggle('active', p.dataset.service === service);
+  });
+  // If address already filled → open booking directly
+  const address = document.getElementById('heroAddress').value.trim();
+  if (address) {
+    openBooking('Thomas M.', '39', 'avatar-1', 'TM');
+  } else {
+    // Scroll to hero and highlight address field
+    document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      document.getElementById('heroAddress').focus();
+      document.getElementById('heroAddress').classList.add('input-invalid');
+      document.getElementById('heroAddressError').style.display = 'block';
+    }, 600);
+  }
+}
+
+// ===== BOOKING MODAL =====
+let currentGardener = {};
+let selectedDuration = 2;
+let selectedPaymentMethod = 'card';
+let currentBookingData = {};
+
+function openBooking(name, price, avatarClass, initials, hasEquipment, equipmentNote) {
+  currentGardener = { name, price: parseInt(price), avatarClass, initials, hasEquipment: hasEquipment === 'true' || hasEquipment === true };
+  document.getElementById('modalName').textContent = name;
+  document.getElementById('modalPrice').textContent = price + '€/h';
+  const avatar = document.getElementById('modalAvatar');
+  avatar.className = 'avatar ' + avatarClass;
+  avatar.textContent = initials;
+  // Show/hide equipment warning in modal
+  const warn = document.getElementById('modalEquipWarn');
+  if (warn) {
+    if (hasEquipment === 'false' || hasEquipment === false) {
+      warn.style.display = 'block';
+      const list = document.getElementById('modalEquipList');
+      if (list) {
+        const tools = (equipmentNote || '').split('+').map(t => t.trim()).filter(Boolean);
+        list.innerHTML = tools.map(t => `<span style="display:inline-block;background:#fff;border:1px solid #FFB300;border-radius:5px;padding:2px 8px;margin:2px 3px 2px 0;font-size:.76rem">🔸 ${t}</span>`).join('');
+      }
+      const cb = document.getElementById('modalEquipConfirm');
+      if (cb) cb.checked = false;
+    } else {
+      warn.style.display = 'none';
+    }
+  }
+
+  const heroAddr = document.getElementById('heroAddress').value;
+  if (heroAddr) document.getElementById('modalAddress').value = heroAddr;
+
+  const serviceSelect = document.getElementById('modalService');
+  for (let opt of serviceSelect.options) {
+    if (opt.value === selectedService) { opt.selected = true; break; }
+  }
+
+  selectedDuration = 2;
+  document.querySelectorAll('.duration-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.hours === '2');
+  });
+  document.getElementById('modalDuree').value = 2;
+  updatePriceCalc();
+
+  document.getElementById('bookingModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function updatePriceCalc() {
+  const rate = currentGardener.price || 39;
+  const total = rate * selectedDuration;
+  document.getElementById('calcRate').textContent = rate + '€/h';
+  document.getElementById('calcHours').textContent = selectedDuration + 'h';
+  document.getElementById('calcTotal').textContent = total + '€';
+}
+
+// Duration buttons
+document.querySelectorAll('.duration-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.duration-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedDuration = parseInt(btn.dataset.hours);
+    document.getElementById('modalDuree').value = selectedDuration;
+    updatePriceCalc();
+  });
+});
+
+function closeModal() {
+  document.getElementById('bookingModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function closePayment() {
+  document.getElementById('paymentModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function closeSuccess() {
+  document.getElementById('successModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// ===== PAYMENT METHOD SELECTION =====
+function selectPayment(method) {
+  selectedPaymentMethod = method;
+  document.getElementById('payCard').classList.toggle('selected', method === 'card');
+  document.getElementById('payCash').classList.toggle('selected', method === 'cash');
+  const btn = document.getElementById('payBtn');
+  if (method === 'card') {
+    btn.innerHTML = 'Payer maintenant <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+  } else {
+    btn.innerHTML = 'Confirmer la réservation <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+  }
+}
+
+// ===== FORM SUBMISSION → PAYMENT =====
+function submitBooking(e) {
+  e.preventDefault();
+  // Vérifier la checkbox matériel si étudiant
+  const warn = document.getElementById('modalEquipWarn');
+  if (warn && warn.style.display !== 'none') {
+    const cb = document.getElementById('modalEquipConfirm');
+    if (!cb || !cb.checked) {
+      cb.closest('label').style.color = '#c62828';
+      cb.closest('label').style.background = '#ffebee';
+      cb.closest('label').style.borderRadius = '6px';
+      cb.closest('label').style.padding = '4px 6px';
+      cb.focus();
+      setTimeout(() => {
+        cb.closest('label').style.color = '';
+        cb.closest('label').style.background = '';
+        cb.closest('label').style.padding = '';
+      }, 3000);
+      return;
+    }
+  }
+  const form = e.target;
+  const data = new FormData(form);
+
+  const prenom = data.get('prenom');
+  const nom = data.get('nom');
+  const phone = data.get('phone');
+  const email = data.get('email') || 'non renseigné';
+  const adresse = data.get('adresse');
+  const service = data.get('service');
+  const surface = data.get('surface') || 'non renseignée';
+  const date = data.get('date') || 'flexible';
+  const message = data.get('message') || 'aucun';
+  const duree = selectedDuration;
+  const total = currentGardener.price * duree;
+
+  currentBookingData = { prenom, nom, phone, email, adresse, service, surface, date, message, duree, total };
+
+  // Fill recap
+  document.getElementById('recapGardener').textContent = currentGardener.name;
+  document.getElementById('recapService').textContent = service;
+  document.getElementById('recapAddress').textContent = adresse.length > 30 ? adresse.substring(0, 30) + '...' : adresse;
+  document.getElementById('recapDate').textContent = date !== 'flexible' ? new Date(date).toLocaleDateString('fr-FR') : 'Flexible';
+  document.getElementById('recapDuration').textContent = duree + 'h × ' + currentGardener.price + '€/h';
+  document.getElementById('recapTotal').textContent = total + '€';
+
+  // Build WhatsApp URL
+  const whatsappMsg = encodeURIComponent(
+    `🌿 Nouvelle réservation PILOGREEN\n\n` +
+    `👤 ${prenom} ${nom}\n` +
+    `📞 ${phone}\n` +
+    `📧 ${email}\n` +
+    `📍 ${adresse}\n` +
+    `🌱 Service: ${service}\n` +
+    `📐 Surface: ${surface}\n` +
+    `⏱ Durée: ${duree}h\n` +
+    `💰 Total: ${total}€\n` +
+    `📅 Date: ${date}\n` +
+    `💬 Message: ${message}\n` +
+    `\n🧑‍🌾 Jardinier: ${currentGardener.name}`
+  );
+  currentBookingData.whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMsg}`;
+
+  // Reset payment selection
+  selectPayment('card');
+
+  // Show payment modal
+  closeModal();
+  document.getElementById('paymentModal').classList.add('active');
+}
+
+// ===== PROCESS PAYMENT =====
+function processPayment() {
+  const d = currentBookingData;
+
+  if (selectedPaymentMethod === 'card') {
+    // Redirect to Stripe Payment Link
+    if (STRIPE_PAYMENT_LINK && STRIPE_PAYMENT_LINK !== 'STRIPE_PAYMENT_LINK_ICI') {
+      const stripeUrl = STRIPE_PAYMENT_LINK +
+        '?prefilled_email=' + encodeURIComponent(d.email !== 'non renseigné' ? d.email : '') +
+        '&client_reference_id=' + encodeURIComponent(d.phone + '_' + d.prenom + '_' + d.nom);
+      window.open(stripeUrl, '_blank');
+    }
+
+    // Show success
+    document.getElementById('successTitle').textContent = 'Paiement en cours !';
+    document.getElementById('successMsg').textContent =
+      'Finalisez votre paiement dans l\'onglet Stripe ouvert. Votre jardinier ' + currentGardener.name +
+      ' vous recontactera sous 2h pour confirmer le créneau. Total : ' + d.total + '€.';
+  } else {
+    document.getElementById('successTitle').textContent = 'Réservation confirmée !';
+    document.getElementById('successMsg').textContent =
+      'Merci ! Votre jardinier ' + currentGardener.name +
+      ' vous recontactera sous 2h pour confirmer le créneau. Paiement de ' + d.total + '€ à effectuer sur place.';
+  }
+
+  document.getElementById('successWhatsapp').href = d.whatsappUrl;
+
+  document.getElementById('paymentModal').classList.remove('active');
+  document.getElementById('successModal').classList.add('active');
+
+  document.getElementById('bookingForm').reset();
+}
+
+// ===== ADDRESS AUTOCOMPLETE (api-adresse.data.gouv.fr) =====
+const acState = {};
+
+function onAddressInput(input, dropdownId) {
+  const q = input.value.trim();
+  clearAddressError();
+
+  if (!acState[dropdownId]) acState[dropdownId] = { timeout: null, results: [], index: -1 };
+  const state = acState[dropdownId];
+
+  clearTimeout(state.timeout);
+  if (q.length < 3) { hideDropdown(dropdownId); return; }
+
+  // Show loading
+  const dd = document.getElementById(dropdownId);
+  dd.innerHTML = '<div class="autocomplete-loading"><span class="spinner" style="border-color:rgba(78,168,27,.3);border-top-color:var(--green)"></span> Recherche...</div>';
+  dd.classList.add('open');
+
+  state.timeout = setTimeout(async () => {
+    try {
+      const url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(q)}&limit=6&autocomplete=1`;
+      const res = await fetch(url);
+      const data = await res.json();
+      state.results = data.features || [];
+      state.index = -1;
+      renderDropdown(input, dropdownId, state.results);
+    } catch(e) {
+      hideDropdown(dropdownId);
+    }
+  }, 220);
+}
+
+function renderDropdown(input, dropdownId, results) {
+  const dd = document.getElementById(dropdownId);
+  if (!results.length) { dd.innerHTML = '<div class="autocomplete-loading">Aucun résultat trouvé</div>'; return; }
+
+  dd.innerHTML = results.map((f, i) => `
+    <div class="autocomplete-item" data-index="${i}">
+      <svg class="ac-icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      <div>
+        <div class="ac-name">${f.properties.name || f.properties.label}</div>
+        <div class="ac-city">${f.properties.postcode} ${f.properties.city}</div>
+      </div>
+    </div>`).join('');
+
+  dd.querySelectorAll('.autocomplete-item').forEach(item => {
+    item.addEventListener('mousedown', e => {
+      e.preventDefault();
+      const idx = parseInt(item.dataset.index);
+      selectAddress(input, dropdownId, results[idx]);
+    });
+  });
+  dd.classList.add('open');
+}
+
+function onAddressKeydown(e, dropdownId) {
+  const state = acState[dropdownId];
+  if (!state || !document.getElementById(dropdownId).classList.contains('open')) return;
+  const items = document.getElementById(dropdownId).querySelectorAll('.autocomplete-item');
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    state.index = Math.min(state.index + 1, items.length - 1);
+    items.forEach((el, i) => el.classList.toggle('highlighted', i === state.index));
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    state.index = Math.max(state.index - 1, -1);
+    items.forEach((el, i) => el.classList.toggle('highlighted', i === state.index));
+  } else if (e.key === 'Enter' && state.index >= 0) {
+    e.preventDefault();
+    selectAddress(e.target, dropdownId, state.results[state.index]);
+  } else if (e.key === 'Escape') {
+    hideDropdown(dropdownId);
+  }
+}
+
+function selectAddress(input, dropdownId, feature) {
+  input.value = feature.properties.label;
+  hideDropdown(dropdownId);
+  clearAddressError();
+  // Sync hero ↔ modal address fields
+  if (input.id === 'heroAddress') {
+    const modalAddr = document.getElementById('modalAddress');
+    if (modalAddr && !modalAddr.value) modalAddr.value = feature.properties.label;
+    // GEO FILTER: afficher les jardiniers proches
+    const coords = feature.geometry && feature.geometry.coordinates; // [lng, lat]
+    if (coords && coords.length === 2) {
+      const cityLabel = feature.properties.city || feature.properties.label;
+      filterGardenersByLocation(coords[1], coords[0], cityLabel);
+      // Scroll vers les profils filtrés
+      setTimeout(() => {
+        const section = document.getElementById('jardiniers');
+        if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 150);
+    }
+  }
+}
+
+function hideDropdown(dropdownId) {
+  const dd = document.getElementById(dropdownId);
+  if (dd) { dd.classList.remove('open'); dd.innerHTML = ''; }
+  if (acState[dropdownId]) acState[dropdownId].index = -1;
+}
+
+// Close dropdowns on outside click
+document.addEventListener('click', e => {
+  ['heroDropdown','modalDropdown'].forEach(id => {
+    const dd = document.getElementById(id);
+    if (dd && !dd.closest('.address-autocomplete').contains(e.target)) hideDropdown(id);
+  });
+});
+
+// ===== WHATSAPP DIRECT =====
+function openWhatsAppDirect(e) {
+  e.preventDefault();
+  const msg = encodeURIComponent('Bonjour ! Je souhaite réserver un jardinier via PILOGREEN pour l\'entretien de mon jardin à Lyon. Pouvez-vous me rappeler ?');
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
+}
+
+// ===== FAQ ACCORDION =====
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+// ===== CLOSE MODAL ON OVERLAY CLICK =====
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+});
+
+// ===== CHECK STRIPE RETURN =====
+if (window.location.search.includes('payment_success')) {
+  document.getElementById('successTitle').textContent = 'Paiement réussi !';
+  document.getElementById('successMsg').textContent = 'Votre paiement a bien été reçu. Votre jardinier vous recontactera sous 2h pour confirmer les détails.';
+  document.getElementById('successModal').classList.add('active');
+  history.replaceState(null, '', window.location.pathname);
+}
+
+// ===== HIDE FLOATING CTA INITIALLY =====
+document.getElementById('floatingCta').style.display = 'none';
+
+// ===== WEATHER BANNER (Open-Meteo — sans clé API, gratuit) =====
+function showSeasonalBanner(banner) {
+  const month = new Date().getMonth(); // 0=Janvier
+  let msg = '';
+  if (month >= 2 && month <= 4) {
+    msg = '🌱 Saison de tonte ouverte ! Réservez votre jardinier pour ce week-end';
+  } else if (month >= 5 && month <= 7) {
+    msg = '☀️ Été : gardez votre jardin impeccable avant les vacances';
+  } else if (month >= 8 && month <= 10) {
+    msg = '🍂 Saison taille des haies — quelques créneaux disponibles cette semaine';
+  } else {
+    return; // Hiver : pas de bannière
+  }
+  banner.innerHTML = msg +
+    ' <span class="wb-cta" onclick="document.getElementById(\'heroAddress\').scrollIntoView({behavior:\'smooth\'})">Voir les disponibilités →</span>' +
+    '<button class="wb-close" onclick="this.parentElement.style.display=\'none\'" aria-label="Fermer">✕</button>';
+  banner.classList.add('weather-season');
+  banner.style.display = 'block';
+}
+
+async function checkWeather() {
+  const banner = document.getElementById('weatherBanner');
+  if (!banner) return;
+  try {
+    const res = await fetch(
+      'https://api.open-meteo.com/v1/forecast?latitude=45.75&longitude=4.85' +
+      '&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode,uv_index_max' +
+      '&hourly=soil_moisture_0_to_1cm' +
+      '&forecast_days=7&timezone=Europe%2FParis'
+    );
+    if (!res.ok) throw new Error();
+    const data = await res.json();
+    const codes   = data.daily.weathercode        || [];
+    const temps   = data.daily.temperature_2m_max || [];
+    const precips = data.daily.precipitation_sum  || [];
+    const uvs     = data.daily.uv_index_max       || [];
+    const soil    = (data.hourly.soil_moisture_0_to_1cm || [])[12] ?? 0.25;
+    // Jours consécutifs sans pluie
+    let daysNoRain = 0;
+    for (const p of precips) { if (p === 0) daysNoRain++; else break; }
+    const allSunny3 = codes.slice(0,3).every(c => c < 3);
+    const allWarm3  = temps.slice(0,3).every(t => t >= 18);
+    const todayRain = (precips[0] || 0) > 8;
+    const todayUV   = uvs[0] || 5;
+    let msg = '', cls = 'weather-sunny';
+    if (allSunny3 && allWarm3) {
+      msg = `☀️ Beau temps 3 jours à Lyon — conditions parfaites pour l'entretien de votre jardin`;
+    } else if (daysNoRain >= 5 && soil < 0.15) {
+      msg = `🌵 ${daysNoRain} jours sans pluie à Lyon — votre pelouse a besoin d'attention urgente`;
+      cls = 'weather-season';
+    } else if (daysNoRain >= 3 && soil < 0.20) {
+      msg = `🌡️ Sol sec depuis ${daysNoRain} jours — idéal pour la tonte et le désherbage maintenant`;
+      cls = 'weather-season';
+    } else if (soil > 0.38) {
+      msg = `💧 Sol bien humide — conditions idéales pour débroussaillage et désherbage cette semaine`;
+      cls = 'weather-season';
+    } else if (todayUV >= 8) {
+      msg = `☀️ UV très élevé aujourd'hui (${Math.round(todayUV)}) — votre jardinier intervient tôt le matin`;
+    } else if (todayRain) {
+      msg = `🌧️ Pluie prévue — planifiez votre taille de haies après les averses cette semaine`;
+      cls = 'weather-season';
+    } else {
+      showSeasonalBanner(banner); return;
+    }
+    banner.innerHTML = msg +
+      ' <span class="wb-cta" onclick="document.getElementById(\'jardiniers\').scrollIntoView({behavior:\'smooth\'})">Voir les créneaux →</span>' +
+      '<button class="wb-close" onclick="this.parentElement.style.display=\'none\'" aria-label="Fermer">✕</button>';
+    banner.className = 'weather-banner ' + cls;
+    banner.style.display = 'block';
+  } catch(e) { showSeasonalBanner(banner); }
+}
+
+// Lancer la vérification météo et ajuster le padding du hero
+async function initWeather() {
+  await checkWeather();
+  adjustHeroPadding();
+}
+
+function adjustHeroPadding() {
+  const header = document.getElementById('header');
+  const hero = document.getElementById('hero');
+  if (header && hero) {
+    hero.style.paddingTop = (header.offsetHeight + 24) + 'px';
+  }
+}
+
+initWeather();
+window.addEventListener('resize', adjustHeroPadding);
+
+// ===== GÉOLOCALISATION GPS =====
+function useMyLocation() {
+  const btn = document.getElementById('geolocBtn');
+  if (!navigator.geolocation) { alert('Géolocalisation non supportée.'); return; }
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner" style="border-color:rgba(78,168,27,.3);border-top-color:var(--green)"></span> Détection en cours…';
+  navigator.geolocation.getCurrentPosition(
+    async pos => {
+      try {
+        const { latitude: lat, longitude: lon } = pos.coords;
+        const r = await fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${lon}&lat=${lat}&limit=1`);
+        const d = await r.json();
+        if (d.features && d.features.length) {
+          const label = d.features[0].properties.label;
+          document.getElementById('heroAddress').value = label;
+          const modal = document.getElementById('modalAddress');
+          if (modal && !modal.value) modal.value = label;
+          clearAddressError();
+          btn.innerHTML = '✅ Position détectée !';
+          btn.style.cssText = 'background:var(--green-light);border-color:var(--green)';
+          // GEO FILTER: filtrer les jardiniers par position GPS
+          const cityLabel = d.features[0].properties.city || label;
+          filterGardenersByLocation(lat, lon, cityLabel);
+          setTimeout(() => {
+            const section = document.getElementById('jardiniers');
+            if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 400);
+        } else {
+          btn.innerHTML = '📍 Utiliser ma position GPS';
+        }
+      } catch(e) { btn.innerHTML = '📍 Utiliser ma position GPS'; }
+      setTimeout(() => { btn.disabled = false; btn.innerHTML = '📍 Utiliser ma position GPS'; btn.style.cssText = ''; }, 3000);
+    },
+    () => { btn.disabled = false; btn.innerHTML = '📍 Utiliser ma position GPS'; },
+    { timeout: 10000, maximumAge: 60000 }
+  );
+}
+
+// ===== FILTRE PRO / ÉTUDIANT =====
+window._gardenerFilter = 'all';
+function updateFilterCounts(sourceList) {
+  const list = sourceList || SITE_DATA.gardeners;
+  const total = list.length;
+  const pros = list.filter(g => g.type === 'pro').length;
+  const etus = list.filter(g => g.type === 'etudiant').length;
+  const cAll = document.getElementById('countAll');
+  const cPro = document.getElementById('countPro');
+  const cEtu = document.getElementById('countEtu');
+  if (cAll) cAll.textContent = total;
+  if (cPro) cPro.textContent = pros;
+  if (cEtu) cEtu.textContent = etus;
+}
+function filterGardeners(type) {
+  window._gardenerFilter = type;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === type));
+  // Si filtre géo actif : re-filtrer par géo + type
+  if (window._userLat != null) {
+    filterGardenersByLocation(window._userLat, window._userLng, window._lastCityLabel);
+  } else {
+    document.querySelectorAll('#gardenersGrid .gardener-card').forEach(card => {
+      card.classList.toggle('hidden-by-filter', type !== 'all' && card.dataset.type !== type);
+    });
+  }
+}
+
+// ===== SCROLL ANIMATIONS =====
+function initScrollAnimations() {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  window._scrollObserver = io;
+  const allEls = [];
+  document.querySelectorAll('.step,.service-card,.guarantee,.review-card,.sub-card,.faq-item').forEach(el => {
+    el.classList.add('fade-in-up');
+    allEls.push(el);
+  });
+  document.querySelectorAll('.gardener-card.fade-in-up').forEach(el => allEls.push(el));
+  // FIX SCROLL RESTORATION : éléments déjà dans/au-dessus du viewport → visibles immédiatement
+  allEls.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      el.classList.add('visible'); // déjà visible ou au-dessus → pas d'animation
+    } else {
+      io.observe(el); // en dessous → animation au scroll
+    }
+  });
+}
+
+// ===== COUNT-UP ANIMATION =====
+function initCountUp() {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      if (isNaN(target)) return;
+      let startTime = null;
+      const duration = 1400;
+      const step = ts => {
+        if (!startTime) startTime = ts;
+        const progress = Math.min((ts - startTime) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(ease * target) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = target + suffix;
+      };
+      requestAnimationFrame(step);
+      io.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-target]').forEach(el => io.observe(el));
+}
+
+// ===== SOCIAL PROOF TOASTS =====
+const SP_TOASTS = [
+  { icon:'🌿', who:'Pierre M.', where:'Lyon 6e', what:'vient de réserver · Tonte pro (matériel fourni)' },
+  { icon:'⭐', who:'Philippe D.', where:'Villeurbanne', what:'a laissé un avis 5★ · Taille de haies' },
+  { icon:'🎓', who:'Kevin K.', where:'Lyon 3e', what:'vient de réserver · Désherbage étudiant 32€/h' },
+  { icon:'🔧', who:'Syndic Écully', where:'Écully', what:'abonnement mensuel souscrit · Matériel pro' },
+  { icon:'📅', who:null, where:null, what:'3 créneaux encore disponibles ce week-end à Lyon' },
+  { icon:'🌿', who:'Jean-Luc B.', where:'Caluire', what:'vient de réserver · Taille de haies pro' },
+  { icon:'💬', who:'Martin T.', where:'Oullins', what:'vient de contacter via WhatsApp' },
+  { icon:'✅', who:'Marc F.', where:'Lyon 8e', what:'réservation confirmée · Tonte (matériel client)' },
+  { icon:'🏡', who:'Antoine P.', where:'Tassin', what:'1ère réservation · Débroussaillage pro' },
+  { icon:'🎓', who:'Théo L.', where:'Lyon 7e', what:'réservation étudiant · Tarif réduit 32€/h' },
+];
+let _toastIdx = Math.floor(Math.random() * SP_TOASTS.length);
+function initSocialProofToasts() {
+  const container = document.getElementById('toastContainer');
+  if (!container) return;
+  function showToast() {
+    // Don't show if admin panel or modal is open
+    if (localStorage.getItem('pilogreen_admin_auth') === '1') return;
+    if (document.querySelector('.modal-overlay.active')) return;
+    const t = SP_TOASTS[_toastIdx % SP_TOASTS.length]; _toastIdx++;
+    const el = document.createElement('div');
+    el.className = 'sp-toast';
+    el.innerHTML = `<span style="font-size:1.1rem;margin-right:6px">${t.icon}</span>`
+      + (t.who ? `<span class="toast-who">${t.who}</span> <span style="font-size:.72rem;color:var(--text-muted)">${t.where}</span><br>` : '')
+      + `<span class="toast-what">${t.what}</span>`;
+    container.appendChild(el);
+    requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('show')));
+    setTimeout(() => { el.classList.add('hide'); setTimeout(() => el.remove(), 500); }, 4500);
+    setTimeout(showToast, 45000 + Math.random() * 45000);
+  }
+  setTimeout(showToast, 10000 + Math.random() * 5000);
+}
+
+// ===== EXIT INTENT =====
+let _exitShown = false;
+function initExitIntent() {
+  const _pageLoadTime = Date.now();
+  const GRACE_MS = 4000; // FIX : ignorer les 4 premières secondes (scroll restoration, etc.)
+  const MIN_SCROLL_Y = 500; // FIX : seuil minimum de scroll avant d'activer
+
+  // Desktop: souris sort par le haut
+  document.addEventListener('mouseleave', e => {
+    if (e.clientY <= 5 && !_exitShown && window.scrollY > MIN_SCROLL_Y && Date.now() - _pageLoadTime > GRACE_MS) showExitPopup();
+  });
+  // Mobile: scroll rapide vers le haut — UNIQUEMENT si l'utilisateur a vraiment scrollé
+  let _lastY = 0, _upStart = 0, _maxScrollY = 0;
+  window.addEventListener('scroll', () => {
+    _maxScrollY = Math.max(_maxScrollY, window.scrollY);
+    const delta = _lastY - window.scrollY;
+    const elapsed = Date.now() - _pageLoadTime;
+    // Conditions : grace period + avoir scrollé au moins 500px avant + scroll up rapide
+    if (delta > 0 && window.scrollY < 80 && !_exitShown && elapsed > GRACE_MS && _maxScrollY > MIN_SCROLL_Y) {
+      if (!_upStart) _upStart = Date.now();
+      if (Date.now() - _upStart < 600 && delta > 50) showExitPopup();
+    } else if (delta <= 0) { _upStart = 0; }
+    _lastY = window.scrollY;
+  }, { passive: true });
+}
+function showExitPopup() {
+  _exitShown = true;
+  document.getElementById('exitPopup').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeExitPopup() {
+  document.getElementById('exitPopup').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// ===== CARTE LEAFLET =====
+function initLeafletMap() {
+  if (typeof L === 'undefined' || !document.getElementById('interventionMap')) return;
+  const map = L.map('interventionMap', {
+    center: [45.764, 4.836], zoom: 11,
+    scrollWheelZoom: false, attributionControl: true
+  });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© <a href="https://openstreetmap.org">OpenStreetMap</a>',
+    maxZoom: 18
+  }).addTo(map);
+  // Zone de couverture
+  L.circle([45.764, 4.836], {
+    color: '#4EA81B', fillColor: '#4EA81B', fillOpacity: 0.10,
+    radius: 18000, weight: 2, dashArray: '8 4'
+  }).addTo(map).bindPopup('<b>🌿 Zone PILOGREEN</b><br>Lyon et Grand Lyon');
+  // Marqueur PILOGREEN centre
+  L.marker([45.764, 4.836], {
+    icon: L.divIcon({ html: '<div style="background:#3A7D15;color:#fff;padding:5px 10px;border-radius:6px;font-size:.7rem;font-weight:700;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.25)">🌿 PILOGREEN</div>', className:'', iconAnchor:[44,14] })
+  }).addTo(map);
+  // Prestations récentes simulées
+  [
+    [45.771, 4.832, 'Lyon 6e · Tonte pro'],
+    [45.748, 4.877, 'Villeurbanne · Taille haies'],
+    [45.785, 4.849, 'Caluire · Désherbage'],
+    [45.764, 4.874, 'Lyon 3e · Débroussaillage'],
+    [45.745, 4.803, 'Lyon 9e · Tonte étudiant'],
+    [45.762, 4.888, 'Bron · Taille haies pro'],
+    [45.728, 4.862, 'Vénissieux · Entretien'],
+    [45.770, 4.781, 'Écully · Abonnement mensuel'],
+    [45.740, 4.826, 'Lyon 8e · Désherbage étudiant'],
+    [45.780, 4.802, 'Lyon 5e · Tonte pro'],
+  ].forEach(([lat, lon, label]) => {
+    L.circleMarker([lat, lon], {
+      radius: 7, color: '#fff', weight: 2,
+      fillColor: '#FF6B2C', fillOpacity: 0.9
+    }).addTo(map).bindPopup(`<b>Prestation récente</b><br>${label}`);
+  });
+}
+
+// ===== MODAL HORS-ZONE =====
+function openExitZoneModal() {
+  document.getElementById('exitZoneModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeExitZoneModal() {
+  document.getElementById('exitZoneModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function submitExitZone() {
+  const city = document.getElementById('exitZoneCity').value.trim();
+  const email = document.getElementById('exitZoneEmail').value.trim();
+  if (!email) { alert('Entrez votre email.'); return; }
+  // Store locally — à connecter à Brevo/Formspree ultérieurement
+  const leads = JSON.parse(localStorage.getItem('pilogreen_waitlist') || '[]');
+  leads.push({ city, email, date: new Date().toISOString() });
+  localStorage.setItem('pilogreen_waitlist', JSON.stringify(leads));
+  closeExitZoneModal();
+  showAdminToast && showAdminToast('✅ ' + email + ' ajouté à la liste d\'attente');
+  alert('✅ Merci ! Vous serez notifié dès l\'arrivée de PILOGREEN dans votre commune.');
+}
+
+// ===== PWA INSTALL =====
+function initPWA() {
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    window._pwaPrompt = e;
+    const banner = document.getElementById('pwaBanner');
+    if (banner) {
+      banner.classList.add('show');
+      setTimeout(() => banner.classList.remove('show'), 20000);
+    }
+  });
+  document.getElementById('pwaInstallBtn')?.addEventListener('click', () => {
+    if (!window._pwaPrompt) return;
+    window._pwaPrompt.prompt();
+    window._pwaPrompt.userChoice.then(() => {
+      document.getElementById('pwaBanner')?.classList.remove('show');
+    });
+  });
+  window.addEventListener('appinstalled', () => {
+    document.getElementById('pwaBanner')?.classList.remove('show');
+  });
+}
+
+// ===== URGENCE TEMPORELLE DYNAMIQUE =====
+function initUrgencyLabel() {
+  const btn = document.getElementById('heroCta');
+  if (!btn) return;
+  const now = new Date();
+  const day = now.getDay(); // 0=dim, 1=lun, ... 5=ven, 6=sam
+  const hour = now.getHours();
+  let label = 'Réserver un jardinier maintenant';
+  const arrow = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`;
+  if (day === 4 && hour >= 17) { // jeudi soir
+    label = '⚡ Dernières places ce week-end — Réserver maintenant';
+  } else if (day === 5) { // vendredi
+    label = hour < 12 ? '⚡ Réserver pour ce week-end — Places limitées'
+                      : '⚡ Urgent — Derniers créneaux ce week-end';
+  } else if (day === 6) { // samedi
+    label = '⚡ Dispo aujourd\'hui — Réserver maintenant';
+  } else if (day === 0) { // dimanche
+    label = '⚡ Dispo cette semaine dès demain — Réserver';
+  } else if (day >= 1 && day <= 3) { // lun-mer
+    label = 'Réserver un jardinier — Dispo sous 48h';
+  }
+  btn.innerHTML = label + ' ' + arrow;
+  // Subtitle update
+  const sub = document.querySelector('.hero-subtitle');
+  if (sub && (day === 4 || day === 5)) {
+    sub.innerHTML = sub.innerHTML + ' <span style="color:var(--orange);font-weight:700">Réservez avant vendredi soir pour ce week-end.</span>';
+  }
+}
+
+// ===== INIT ALL NEW FEATURES =====
+initScrollAnimations();
+initCountUp();
+initSocialProofToasts();
+initExitIntent();
+initLeafletMap();
+initPWA();
+initUrgencyLabel();
+
+// ===== LEGAL MODAL =====
+function openLegal(tab) {
+  document.getElementById('legalModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  if (tab) switchLegalTab(tab);
+}
+function closeLegal() {
+  document.getElementById('legalModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function switchLegalTab(tab) {
+  document.querySelectorAll('.legal-tab').forEach(t => t.classList.toggle('active', t.dataset.tab===tab));
+  document.querySelectorAll('.legal-content').forEach(c => c.classList.toggle('active', c.id==='legal-'+tab));
+}
+
+// ===== ADMIN PANEL =====
+const ADMIN_KEY = 'PILOGREEN2024';
+const ADMIN_AUTH_KEY = 'pilogreen_admin_auth';
+
+function initAdmin() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('admin') === ADMIN_KEY) {
+    localStorage.setItem(ADMIN_AUTH_KEY, '1');
+    history.replaceState(null, '', window.location.pathname);
+  }
+  if (localStorage.getItem(ADMIN_AUTH_KEY) === '1') {
+    document.getElementById('adminPanel').style.display = 'flex';
+    document.getElementById('adminToggleBtn').style.display = 'block';
+    loadAdminForms();
+  }
+}
+
+function toggleAdminPanel() {
+  const p = document.getElementById('adminPanel');
+  p.style.display = p.style.display === 'flex' ? 'none' : 'flex';
+}
+
+function adminLogout() {
+  localStorage.removeItem(ADMIN_AUTH_KEY);
+  document.getElementById('adminPanel').style.display = 'none';
+  document.getElementById('adminToggleBtn').style.display = 'none';
+}
+
+function switchAdminTab(tab) {
+  document.querySelectorAll('.admin-tab').forEach(t => t.classList.toggle('active', t.dataset.tab===tab));
+  document.querySelectorAll('.admin-section').forEach(s => s.classList.toggle('active', s.id==='admin-'+tab));
+}
+
+function loadAdminForms() {
+  document.getElementById('adminWhatsapp').value = SITE_DATA.contact.whatsapp;
+  document.getElementById('adminEmail').value = SITE_DATA.contact.email;
+  document.getElementById('adminPhone').value = SITE_DATA.contact.phone;
+  document.getElementById('adminStripe').value = SITE_DATA.contact.stripe;
+  document.getElementById('adminGardens').value = SITE_DATA.stats.gardensCount;
+  document.getElementById('adminRating').value = SITE_DATA.stats.rating;
+  document.getElementById('adminReviewCount').value = SITE_DATA.stats.reviewCount;
+  renderAdminGardeners();
+  renderAdminReviews();
+}
+
+function renderAdminGardeners() {
+  const list = document.getElementById('adminGardenerList');
+  list.innerHTML = SITE_DATA.gardeners.map((g, i) => `
+    <div class="admin-item" id="admin-g-${i}">
+      <div class="admin-item-header" onclick="toggleAdminItem('admin-g-${i}')">
+        <div class="avatar ${g.avatarClass}" style="width:28px;height:28px;font-size:.7rem;flex-shrink:0">${g.initials}</div>
+        <strong>${g.name}</strong> &mdash; ${g.price}€/h
+        <span style="margin-left:auto">▾</span>
+      </div>
+      <div class="admin-item-body">
+        <div class="admin-form-row"><label>Nom complet</label><input value="${g.name}" onchange="SITE_DATA.gardeners[${i}].name=this.value"></div>
+        <div class="admin-form-row"><label>Initiales (2-3 lettres)</label><input maxlength="3" value="${g.initials}" onchange="SITE_DATA.gardeners[${i}].initials=this.value"></div>
+        <div class="admin-form-row"><label>Badge (Expert vert / Jardinier confirmé / Nouveau)</label><input value="${g.badge}" onchange="SITE_DATA.gardeners[${i}].badge=this.value"></div>
+        <div class="admin-form-row"><label>Prix (€/h)</label><input type="number" value="${g.price}" onchange="SITE_DATA.gardeners[${i}].price=parseInt(this.value)"></div>
+        <div class="admin-form-row"><label>Note (0-5)</label><input type="number" step="0.1" min="0" max="5" value="${g.rating}" onchange="SITE_DATA.gardeners[${i}].rating=parseFloat(this.value)"></div>
+        <div class="admin-form-row"><label>Nombre d'avis</label><input type="number" value="${g.reviews}" onchange="SITE_DATA.gardeners[${i}].reviews=parseInt(this.value)"></div>
+        <div class="admin-form-row"><label>Disponibilité (ex: Dispo demain)</label><input value="${g.availability}" onchange="SITE_DATA.gardeners[${i}].availability=this.value"></div>
+        <div class="admin-form-row"><label>Créneaux ce week-end (0 = masqué)</label><input type="number" min="0" value="${g.slots}" onchange="SITE_DATA.gardeners[${i}].slots=parseInt(this.value)"></div>
+        <div class="admin-form-row"><label>Description</label><textarea rows="3" onchange="SITE_DATA.gardeners[${i}].desc=this.value">${g.desc}</textarea></div>
+        <div class="admin-form-row"><label>Tags (séparés par virgule)</label><input value="${g.tags}" onchange="SITE_DATA.gardeners[${i}].tags=this.value"></div>
+      </div>
+    </div>`).join('');
+}
+
+function renderAdminReviews() {
+  const list = document.getElementById('adminReviewList');
+  list.innerHTML = SITE_DATA.reviews.map((r, i) => `
+    <div class="admin-item" id="admin-r-${i}">
+      <div class="admin-item-header" onclick="toggleAdminItem('admin-r-${i}')">
+        <div style="width:28px;height:28px;border-radius:50%;background:${r.avatarColor};color:#fff;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;flex-shrink:0">${r.initials}</div>
+        <strong>${r.name}</strong> &mdash; ${r.date}
+        <span style="margin-left:auto">▾</span>
+      </div>
+      <div class="admin-item-body">
+        <div class="admin-form-row"><label>Nom</label><input value="${r.name}" onchange="SITE_DATA.reviews[${i}].name=this.value"></div>
+        <div class="admin-form-row"><label>Initiales</label><input maxlength="3" value="${r.initials}" onchange="SITE_DATA.reviews[${i}].initials=this.value"></div>
+        <div class="admin-form-row"><label>Localisation</label><input value="${r.location}" onchange="SITE_DATA.reviews[${i}].location=this.value"></div>
+        <div class="admin-form-row"><label>Date (ex: Mai 2026)</label><input value="${r.date}" onchange="SITE_DATA.reviews[${i}].date=this.value"></div>
+        <div class="admin-form-row"><label>Service réalisé</label><input value="${r.service}" onchange="SITE_DATA.reviews[${i}].service=this.value"></div>
+        <div class="admin-form-row"><label>Couleur avatar</label><input type="color" value="${r.avatarColor}" onchange="SITE_DATA.reviews[${i}].avatarColor=this.value"></div>
+        <div class="admin-form-row"><label>Texte de l'avis</label><textarea rows="4" onchange="SITE_DATA.reviews[${i}].text=this.value">${r.text}</textarea></div>
+      </div>
+    </div>`).join('');
+}
+
+function toggleAdminItem(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+
+function saveAdminData() {
+  // Collect config tab values
+  SITE_DATA.contact.whatsapp = document.getElementById('adminWhatsapp').value.trim();
+  SITE_DATA.contact.email = document.getElementById('adminEmail').value.trim();
+  SITE_DATA.contact.phone = document.getElementById('adminPhone').value.trim();
+  SITE_DATA.contact.stripe = document.getElementById('adminStripe').value.trim();
+  SITE_DATA.stats.gardensCount = parseInt(document.getElementById('adminGardens').value) || 127;
+  SITE_DATA.stats.rating = document.getElementById('adminRating').value || '4.8';
+  SITE_DATA.stats.reviewCount = parseInt(document.getElementById('adminReviewCount').value) || 47;
+  // Update live vars
+  WHATSAPP_NUMBER = SITE_DATA.contact.whatsapp;
+  CONTACT_EMAIL = SITE_DATA.contact.email;
+  STRIPE_PAYMENT_LINK = SITE_DATA.contact.stripe;
+  // Persist
+  localStorage.setItem('pilogreen_data', JSON.stringify(SITE_DATA));
+  // Re-render
+  renderGardeners();
+  renderReviews();
+  renderStats();
+  showAdminToast('✅ Modifications sauvegardées !');
+}
+
+function resetAdminData() {
+  if (!confirm('Réinitialiser toutes les données par défaut ? Cette action est irréversible.')) return;
+  localStorage.removeItem('pilogreen_data');
+  location.reload();
+}
+
+function showAdminToast(msg) {
+  const t = document.getElementById('adminToast');
+  t.textContent = msg;
+  t.style.opacity = '1';
+  t.style.transform = 'translateY(0)';
+  setTimeout(() => { t.style.opacity = '0'; t.style.transform = 'translateY(20px)'; }, 2800);
+}
+
+function exportAdminHTML() {
+  const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+  const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'pilogreen-landing-updated.html';
+  a.click(); URL.revokeObjectURL(url);
+  showAdminToast('✅ HTML exporté !');
+}
+
+initAdmin();
+</script>
+
+<!-- ================================================
+     🟢 TAWK.TO — Chat en direct GRATUIT (illimité)
+     SETUP (5 min) :
+     1. Créer compte gratuit sur https://www.tawk.to
+     2. "Add new property" → Nom: PILOGREEN, URL: votre domaine
+     3. Copier votre Property ID et Widget ID depuis le dashboard
+     4. Remplacer VOTRE_PROPERTY_ID et VOTRE_WIDGET_ID ci-dessous
+     5. Décommenter le bloc <script> suivant
+     ================================================ -->
+<!--
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+Tawk_API.customStyle = {
+  visibility: {
+    desktop: { position: 'br', xOffset: 20, yOffset: 80 },
+    mobile:  { position: 'br', xOffset: 8,  yOffset: 70 }
+  }
+};
+Tawk_API.onLoad = function(){
+  Tawk_API.setAttributes({
+    'name': 'Visiteur',
+    'email': ''
+  }, function(error){});
+};
+(function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/VOTRE_PROPERTY_ID/VOTRE_WIDGET_ID';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+-->
+
+<!-- ================================================
+     🟣 MICROSOFT CLARITY — Heatmaps + Enregistrements GRATUIT
+     SETUP (3 min) :
+     1. Créer compte sur https://clarity.microsoft.com
+     2. "+ New project" → Nom: PILOGREEN, URL: votre domaine
+     3. Copier votre Tracking ID (ex: "abc123xyz")
+     4. Remplacer VOTRE_CLARITY_ID ci-dessous
+     5. Décommenter le bloc <script> suivant
+     ================================================ -->
+<!--
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "VOTRE_CLARITY_ID");
+</script>
+-->
+
+</body>
+</html>
